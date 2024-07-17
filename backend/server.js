@@ -15,10 +15,10 @@ app.use(express.json());
 // Import routes
 const testRoute = require('./routes/testRoute');
 
-// Use routes
 app.use('/api', testRoute);
 
-// MongoDB Connection
+
+
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
