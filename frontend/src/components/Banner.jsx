@@ -1,16 +1,24 @@
 import React from 'react';
-import backgroundImage from '../assets/banner.png';
-import logo from '../assets/logo.png';
-import './Banner.css'; // Import the CSS file for custom styles
+import { useNavigate } from 'react-router-dom';
+import backgroundImage from '../assets/bg-1.webp';
+import './Banner.css';
 
 const Banner = () => {
+  const navigate = useNavigate();
+
+  const handleSignInClick = () => {
+    navigate('/SignIn');
+  };
+
   return (
     <div
       className="relative bg-cover bg-center text-white h-screen"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <button className="absolute top-0 right-0 m-6 flex items-center space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1">
-        <img src={logo} alt="Logo" className="md:h-[32px] sm:h-[18px]" />
+      <button
+        className="absolute top-0 right-0 m-6 flex items-center space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
+        onClick={handleSignInClick}
+      >
         <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
           SIGN IN
         </div>
@@ -19,7 +27,7 @@ const Banner = () => {
         <div>
           <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[80px] md:text-[75px] sm:text-[35px] font-bold leading-none text-left">
             BUILD YOUR RESUME HERE
-            <span className="blinking-cursor ">|</span> {/* Blinking cursor */}
+            <span className="blinking-cursor">|</span> 
           </h5>
         </div>
         <div className="mt-5 mb-8">
