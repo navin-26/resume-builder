@@ -19,7 +19,7 @@ const SignIn = () => {
       className="relative bg-cover bg-center h-screen flex items-center justify-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="container border-0 border-white w-1/4 p-6 bg-white bg-opacity-10 rounded-md">
+      <div className="container border-0 border-white lg:w-1/4 md:w-1/3 sm:w-11/12 xl:p-6 sm:p-3 bg-white bg-opacity-10 rounded-md">
         <form className="flex flex-col space-y-6 items-center" onSubmit={handleSubmit(onSubmit)}>
           <h1 className="text-3xl font-bold mb-3 text-white">SIGN IN</h1>
           <button
