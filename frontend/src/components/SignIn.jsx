@@ -14,6 +14,10 @@ const SignIn = () => {
     reset();
   };
 
+  const googleAuth = () => {
+    window.open(`${process.env.REACT_APP_API_URL}/auth/google`, "_self");
+  };
+
   return (
     <div
       className="relative bg-cover bg-center h-screen flex items-center justify-center"
@@ -23,7 +27,8 @@ const SignIn = () => {
         <form className="flex flex-col space-y-6 items-center" onSubmit={handleSubmit(onSubmit)}>
           <h1 className="text-3xl font-bold mb-3 text-white">SIGN IN</h1>
           <button
-            type="submit"
+            type="button"
+            onClick={googleAuth}
             className="p-2 border border-gray-300 w-2/3 rounded-full bg-white hover:bg-black hover:text-white flex items-center justify-center space-x-2 text-[10px]"
           >
             <FaGoogle size={18} />

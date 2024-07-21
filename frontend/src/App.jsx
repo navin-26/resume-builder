@@ -1,16 +1,18 @@
-import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import SignInPage from "./pages/SignInPage";
-import SignUpPage from "./pages/SignUpPage";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+import UserHome from './pages/UserHome';
 import './App.css';
 
 const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/SignIn" element={<SignInPage />} />
-      <Route path="/SignUp" element={<SignUpPage />} />
+      <Route path="/signin" element={<SignInPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/UserHome" element={<UserHome />} />
     </Routes>
   </Router>
 );
