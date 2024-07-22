@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import UserHome from './pages/UserHome';
+import TemplateEditPage from './pages/TemplateEditPage';
 import './App.css';
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
       <Route path="/signin" element={<SignInPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/UserHome" element={<UserHome />} />
+      <Route path="/TemplateEditPage" element={<TemplateEditPage />} />
     </Routes>
   </Router>
 );
