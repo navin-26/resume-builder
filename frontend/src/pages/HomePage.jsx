@@ -8,8 +8,6 @@ const HomePage = () => {
       <div className="home-page">
         <Banner />
         <About />
-        
-        
       </div>
     );
   };

@@ -10,6 +10,10 @@ const Banner = () => {
     navigate('/SignIn');
   };
 
+  const toTemplate = () => {
+    navigate('/Template');
+  }
+
   return (
     <div
       className="relative bg-cover bg-center text-white h-screen"
@@ -31,7 +35,7 @@ const Banner = () => {
           </h5>
         </div>
         <div className="mt-5 mb-8">
-          <button className="bg-black border-2 border-yellow-500 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">
+          <button className="bg-black border-2 border-yellow-500 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black" onClick={toTemplate}>
             GET STARTED
           </button>
         </div>
