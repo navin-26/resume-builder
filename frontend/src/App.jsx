@@ -1,15 +1,23 @@
 import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"; 
 import './App.css';
+import { AuthProvider } from "./content/auth";
+import {Login} from "./components/Login";
+import {SignUp} from "./components/SignUp";
 
 const App = () => (
-  <Router>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-    
-    </Routes>
-  </Router>
+  <AuthProvider>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+        </Routes>
+      </div>
+    </Router>
+  </AuthProvider>
 );
 
 export default App;

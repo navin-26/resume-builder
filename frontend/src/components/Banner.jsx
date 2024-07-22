@@ -2,6 +2,7 @@ import React from 'react';
 import backgroundImage from '../assets/banner.png';
 import logo from '../assets/logo.png';
 import './Banner.css'; // Import the CSS file for custom styles
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
@@ -12,7 +13,7 @@ const Banner = () => {
       <button className="absolute top-0 right-0 m-6 flex items-center space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1">
         <img src={logo} alt="Logo" className="md:h-[32px] sm:h-[18px]" />
         <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
-          SIGN IN
+          <Link to="/signup">SIGN IN</Link>
         </div>
       </button>
       <div className="relative md:pl-24 sm:pl-12 md:w-1/2 sm:w-3/4 h-screen content-center">
