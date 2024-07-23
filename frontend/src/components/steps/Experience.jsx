@@ -17,9 +17,15 @@ const ExperienceInfo = () => {
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
-    const updatedExperiences = data.experiences.map((experience, i) =>
-      i === index ? { ...experience, [name]: value } : experience
-    );
+    const updatedExperiences = data.experiences.map((experience, i) => {
+      if (i === index) {
+        if (name === 'summary') {
+          return { ...experience, [name]: value.slice(0, 70) }; // Limit summary to 70 characters
+        }
+        return { ...experience, [name]: value };
+      }
+      return experience;
+    });
     setData({ ...data, experiences: updatedExperiences });
   };
 
@@ -103,7 +109,19 @@ const ExperienceInfo = () => {
               className="w-full p-2 border rounded bg-white text-black date-input"
             />
           </div>
-          
+          <div className="mb-4 col-span-2">
+            <label className="block">Summary</label>
+            <textarea
+              name="summary"
+              value={experience.summary}
+              onChange={(e) => handleChange(e, index)}
+              className="w-full p-2 border rounded bg-black text-white h-24"
+              maxLength="70" // Enforce max length in the UI
+            />
+            {experience.summary.length === 70 && (
+              <p className="text-red-500 text-sm">Summary cannot exceed 70 characters</p>
+            )}
+          </div>
           {data.experiences.length > 1 && (
             <div className="col-span-2 flex justify-end">
               <button

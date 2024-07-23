@@ -16,9 +16,15 @@ const ProjectInfo = () => {
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
-    const updatedProjects = data.projects.map((project, i) =>
-      i === index ? { ...project, [name]: value } : project
-    );
+    const updatedProjects = data.projects.map((project, i) => {
+      if (i === index) {
+        if (name === 'summary') {
+          return { ...project, [name]: value.slice(0, 70) }; // Limit summary to 70 characters
+        }
+        return { ...project, [name]: value };
+      }
+      return project;
+    });
     setData({ ...data, projects: updatedProjects });
   };
 
@@ -98,7 +104,11 @@ const ProjectInfo = () => {
               value={project.summary}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border rounded bg-black text-white h-24"
+              maxLength="70" // Enforce max length in the UI
             />
+            {project.summary.length === 70 && (
+              <p className="text-red-500 text-sm">Summary cannot exceed 70 characters</p>
+            )}
           </div>
           {data.projects.length > 1 && (
             <div className="col-span-2 flex justify-end">
