@@ -6,6 +6,7 @@ import SignUpPage from './pages/SignUpPage';
 import UserHome from './pages/UserHome';
 import Template from './pages/template';
 import './App.css';
+import Dashboard from './pages/Dashboard';
 
 const App = () => (
   <Router>
@@ -15,6 +16,7 @@ const App = () => (
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/UserHome" element={<UserHome />} />
       <Route path='/Template' element={<Template />} />
+      <Route path='/Dashboard' element={<Dashboard />} />
     </Routes>
   </Router>
 );

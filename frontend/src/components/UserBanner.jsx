@@ -38,6 +38,10 @@ const UserBanner = () => {
     navigate('/Template');
   }
 
+  const toDashboard = () => {
+    navigate('/Dashboard');
+  }
+
   if (!user) {
     return <div>Loading...</div>;
   }
@@ -47,17 +51,27 @@ const UserBanner = () => {
 
   return (
     <div
-      className="relative bg-cover bg-center text-white h-screen"
+      className="flex flex-col bg-cover bg-center text-white h-screen"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <button
-        className="absolute top-0 right-0 m-6 flex items-center space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
-        onClick={handleLogout}
-      >
-        <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
-          LOG OUT
-        </div>
-      </button>
+      <div className="flex justify-end w-full">
+        <button
+          className="m-6 space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
+          onClick={toDashboard}
+        >
+          <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
+            DASHBOARD
+          </div>
+        </button>
+        <button
+          className="m-6 space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
+          onClick={handleLogout}
+        >
+          <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
+            LOG OUT
+          </div>
+        </button>
+      </div>
       <div className="relative md:pl-24 sm:pl-12 md:w-1/2 sm:w-3/4 h-screen content-center">
         <div>
           <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[80px] md:text-[75px] sm:text-[35px] font-bold leading-none text-left">

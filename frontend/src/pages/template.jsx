@@ -27,8 +27,8 @@ const templates = [
 
 const template = () => {
   return (
-    <div className="relative bg-cover bg-center text-white h-screen h-screen" style={{backgroundImage: `url(${image})`}}>
-        <div className="w-10/12 h-2/6 bg-white text-black subpixel-antialiased px-10 m-12" style={{fontWeight:'600', fontSize:'5.5rem'}}>
+    <div className="bg-cover bg-center text-white h-screen" style={{backgroundImage: `url(${image})`}}>
+        <div className="w-10/12 h-2/6 bg-white text-black subpixel-antialiased px-10 m-12 tracking-wider" style={{fontWeight:'600', fontSize:'5.5rem'}}>
             <p>SELECT A</p>
             <p>TEMPLATE</p>
         </div>
