@@ -5,6 +5,7 @@ import Experience from '../components/steps/Experience';
 import Skills from '../components/steps/Skills';
 import Projects from '../components/steps/Projects';
 import ResumePreview from '../components/ResumePreview';
+import Summary from '../components/steps/Summary';
 import backgroundImage from '../assets/bg-5.webp';
 
 const TemplateEditPage = () => {
@@ -27,7 +28,8 @@ const TemplateEditPage = () => {
     <Education data={formData} setData={setFormData} />,
     <Experience data={formData} setData={setFormData} />,
     <Skills data={formData} setData={setFormData} />,
-    <Projects data={formData} setData={setFormData} />
+    <Projects data={formData} setData={setFormData} />,
+    <Summary data={formData} setData={setFormData} />
   ];
 
   const handleNext = () => {

@@ -1,67 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const Skills = ({ data, setData }) => {
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
+const Skills = () => {
+  const [skill, setSkill] = useState('');
+  const [skills, setSkills] = useState(['']);
+
+  const handleInputChange = (e) => {
+    setSkill(e.target.value);
+  };
+
+  const handleAddSkill = (e) => {
+    if (e.key === 'Enter' && skill.trim()) {
+      setSkills([...skills, skill.trim()]);
+      setSkill('');
+    }
+  };
+
+  const handleRemoveSkill = (skillToRemove) => {
+    setSkills(skills.filter(s => s !== skillToRemove));
   };
 
   return (
     <div className='text-white'>
       <h2 className="text-2xl font-bold mb-4">Skills</h2>
-      <div className=''>
-      <div className="mb-4">
-        <label className="block">First Name</label>
+      <div className='mb-4'>
+        <label className="block">Enter a Skill</label>
         <input
           type="text"
-          name="fname"
-          value={data.fname}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
+          value={skill}
+          onChange={handleInputChange}
+          onKeyDown={handleAddSkill}
+          className="w-full p-2 border rounded bg-black text-white"
         />
       </div>
       <div className="mb-4">
-        <label className="block">Last Name</label>
-        <input
-          type="text"
-          name="lname"
-          value={data.lname}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={data.email}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block">Phone</label>
-        <input
-          type="text"
-          name="phone"
-          value={data.phone}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block">Address</label>
-        <input
-          type="text"
-          name="address"
-          value={data.address}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+        <label className="block">Your Skills</label>
+        <div className="flex flex-wrap">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="bg-white text-black rounded-full px-4 py-2 mr-2 mb-2 flex items-center"
+            >
+              {skill}
+              <FontAwesomeIcon
+                icon={faTimes}
+                className="ml-2 cursor-pointer"
+                onClick={() => handleRemoveSkill(skill)}
+              />
+            </div>
+          ))}
+          
+        </div>
       </div>
     </div>
   );

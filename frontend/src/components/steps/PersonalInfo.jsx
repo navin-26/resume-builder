@@ -46,7 +46,7 @@ const PersonalInfo = ({ data, setData }) => {
         <div className="mb-4">
           <label className="block">Phone</label>
           <input
-            type="text"
+            type="tel"
             name="phone"
             value={data.phone}
             onChange={handleChange}
