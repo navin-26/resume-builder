@@ -19,11 +19,6 @@ const templates = [
     id: 3,
     name : 'template - 3',
     img : image1
-  },
-  {
-    id: 4,
-    name : 'template - 3',
-    img : image1
   }
 ];
 
