@@ -1,4 +1,3 @@
-// frontend/src/components/steps/PersonalInfo.jsx
 import React from 'react';
 
 const PersonalInfo = ({ data, setData }) => {

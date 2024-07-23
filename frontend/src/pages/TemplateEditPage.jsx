@@ -1,13 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useParams } from 'react-router-dom';
 import PersonalInfo from '../components/steps/PersonalInfo';
-import Education from '../components/steps/Education';
+import EducationInfo from '../components/steps/EducationInfo';
 import Experience from '../components/steps/Experience';
 import Skills from '../components/steps/Skills';
 import Projects from '../components/steps/Projects';
-import ResumePreview from '../components/ResumePreview';
-import backgroundImage from '../assets/bg-5.webp';
+import Summary from '../components/steps/Summary';
+import backgroundImage from '../assets/bg-2.webp';
+import image1 from '../assets/t-1.webp';
+
+const Templates = [
+  {
+    id: 1,
+    name: 'template - 1',
+    img: image1
+  },
+  {
+    id: 2,
+    name: 'template - 2',
+    img: image1
+  },
+  {
+    id: 3,
+    name: 'template - 3',
+    img: image1
+  },
+  {
+    id: 4,
+    name: 'template - 4',
+    img: image1
+  }
+];
 
 const TemplateEditPage = () => {
+  const { templateId } = useParams();
+  const selectedTemplate = Templates.find(template => template.id === parseInt(templateId));
+
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({
     fname: '',
@@ -16,18 +44,43 @@ const TemplateEditPage = () => {
     phone: '',
     city: '',
     state: '',
-    education: [],
-    experience: [],
+    education: [
+      {
+        institute: '',
+        degree: '',
+        specialization: '',
+        startDate: '',
+        endDate: '',
+        percentage: ''
+      }
+    ],
+    experience: [
+      {
+        companyName: '',
+        position: '',
+        startDate: '',
+        endDate: '',
+      }
+    ],
     skills: [],
-    projects: []
+    projects: [
+      {
+        projectTitle: '',
+        startDate: '',
+        endDate: '',
+        description: ''
+      }
+    ],
+    Summary: ''
   });
 
   const steps = [
     <PersonalInfo data={formData} setData={setFormData} />,
-    <Education data={formData} setData={setFormData} />,
+    <EducationInfo data={formData} setData={setFormData} />,
     <Experience data={formData} setData={setFormData} />,
     <Skills data={formData} setData={setFormData} />,
-    <Projects data={formData} setData={setFormData} />
+    <Projects data={formData} setData={setFormData} />,
+    <Summary data={formData} setData={setFormData} />
   ];
 
   const handleNext = () => {
@@ -38,17 +91,34 @@ const TemplateEditPage = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 0));
   };
 
+  const [ResumePreviewComponent, setResumePreviewComponent] = useState(null);
+
+  useEffect(() => {
+    const loadComponent = async () => {
+      try {
+        const { default: Component } = await import(`../components/Templates/ResumePreview-${templateId}`);
+        setResumePreviewComponent(() => Component);
+      } catch (error) {
+        console.error(`Error loading template ${templateId}`, error);
+      }
+    };
+
+    loadComponent();
+  }, [templateId]);
+
   return (
     <div className="flex relative bg-cover bg-center text-black h-auto py-8" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="w-1/2 p-8 border-4 border-green-400">
+      <div className="w-1/2 p-8 ">
         {steps[currentStep]}
         <div className="flex justify-between mt-4">
           {currentStep > 0 && <button onClick={handlePrev} className="bg-black border-2 border-yellow-500 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Previous</button>}
           {currentStep < steps.length - 1 && <button onClick={handleNext} className="bg-black border-2 border-yellow-500 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Next</button>}
         </div>
       </div>
-      <div className="w-1/2 p-8 border-4 border-red-700">
-        <ResumePreview data={formData} />
+      <div className="w-1/2 p-8 bg-gray-400 bg-opacity-60">
+        <Suspense fallback={<div>Loading...</div>}>
+          {ResumePreviewComponent && <ResumePreviewComponent data={formData} />}
+        </Suspense>
       </div>
     </div>
   );
