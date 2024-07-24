@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 import backgroundImage from '../assets/bg-2.webp';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      await axios.post('http://localhost:5000/auth/signin', data, { withCredentials: true });
+      reset();
+      const redirectTo = location.state?.from?.pathname || '/';
+      navigate(redirectTo);
+    } catch (error) {
+      console.error('Sign-in error:', error);
+    }
   };
 
   const googleAuth = () => {

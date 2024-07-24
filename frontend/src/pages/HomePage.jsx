@@ -7,6 +7,7 @@ const HomePage = () => {
     return (
       <div className="home-page">
         <Banner />
+        <About/>
      
         
         

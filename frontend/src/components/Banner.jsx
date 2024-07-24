@@ -1,51 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from './context/AuthContext';
 import backgroundImage from '../assets/bg-1.webp';
-import image1 from '../assets/t-1.webp';
 import './Banner.css';
 
 const Banner = () => {
+  const { isAuthenticated, logout } = useAuth();
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/login/success', { withCredentials: true })
-      .then(response => {
-        if (response.data.user) {
-          setUser(response.data.user);
-        }
-      })
-      .catch(error => {
-        console.error('Error during login check:', error);
-      });
-  }, []);
+    if (isAuthenticated) {
+      axios.get('http://localhost:5000/auth/login/success', { withCredentials: true })
+        .then(response => {
+          if (response.data.user) {
+            setUser(response.data.user);
+          }
+        })
+        .catch(error => {
+          console.error('Error during login check:', error);
+        });
+    } else {
+      setUser(null);
+    }
+  }, [isAuthenticated]);
 
   const handleSignInClick = () => {
-    navigate('/SignIn');
+    navigate('/signin');
   };
 
   const handleLogout = () => {
-    axios.get('http://localhost:5000/auth/logout', { withCredentials: true })
-      .then(() => {
-        setUser(null);
-        navigate('/');
-      })
-      .catch(error => {
-        console.error('Logout error:', error);
-      });
+    logout();
+    navigate('/');
   };
 
   const toTemplate = () => {
-    if (user) {
+    if (isAuthenticated) {
       navigate('/Templates');
     } else {
-      navigate('/SignIn');
+      navigate('/signin');
     }
-  };
-
-  const toDashboard = () => {
-    navigate('/Dashboard');
   };
 
   const userName = user ? `${user.name.givenName || ''} ${user.name.familyName || ''}` : 'User';
@@ -55,41 +50,27 @@ const Banner = () => {
       className="relative bg-cover bg-center text-white h-screen"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="flex justify-end w-full">
-        {user ? (
-          <>
-            <button
-              className="m-6 space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
-              onClick={toDashboard}
-            >
-              <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
-                DASHBOARD
-              </div>
-            </button>
-            <button
-              className="m-6 space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
-              onClick={handleLogout}
-            >
-              <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
-                LOG OUT
-              </div>
-            </button>
-          </>
+      <div className="absolute top-6 right-6 flex flex-col space-y-4">
+        {isAuthenticated ? (
+          <button
+            className="bg-transparent border-none cursor-pointer text-white font-bold hover:text-stone-300 text-[20px] md:text-[35px]"
+            onClick={handleLogout}
+          >
+            LOG OUT
+          </button>
         ) : (
           <button
-            className="absolute top-0 right-0 m-6 flex items-center space-x-2 bg-transparent border-none cursor-pointer focus:outline-none md:p-3 sm:md:1"
+            className="bg-transparent border-none cursor-pointer text-white font-bold hover:text-stone-300 text-[20px] md:text-[35px]"
             onClick={handleSignInClick}
           >
-            <div className="text-white md:text-[32px] sm:text-[18px] font-bold hover:text-stone-300">
-              SIGN IN
-            </div>
+            SIGN IN
           </button>
         )}
       </div>
       <div className="relative md:pl-24 sm:pl-12 md:w-1/2 sm:w-3/4 h-screen content-center">
         <div>
           <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[80px] md:text-[75px] sm:text-[35px] font-bold leading-none text-left">
-            {user ? `WELCOME, ${userName}` : 'BUILD YOUR RESUME HERE'}
+            {isAuthenticated ? `WELCOME, ${userName}` : 'BUILD YOUR RESUME HERE'}
             <span className="blinking-cursor">|</span>
           </h5>
         </div>

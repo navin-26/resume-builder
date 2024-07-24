@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import image from '../assets/bg-4.png';
+import { useAuth } from '../components/context/AuthContext';
+import image from '../assets/bg-7.png';
 import image1 from '../assets/t-1.webp';
+import image2 from '../assets/t-2.webp';
+import image3 from '../assets/t-3.webp';
+import image4 from '../assets/t-4.webp';
+import './TemplatePage.css'; // Import your CSS file
 
 const Templates = [
   {
@@ -13,17 +17,17 @@ const Templates = [
   {
     id: 2,
     name: 'template - 2',
-    img: image1
+    img: image2
   },
   {
     id: 3,
     name: 'template - 3',
-    img: image1
+    img: image3
   },
   {
     id: 4,
     name: 'template - 4',
-    img: image1
+    img: image4
   }
 ];
 
@@ -31,11 +35,26 @@ const TemplatePage = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
 
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const firstImage = new Image();
+    firstImage.src = image1;
+    firstImage.onload = () => {
+      const aspectRatio = firstImage.width / firstImage.height;
+      const desiredHeight = 250; // Desired height for all images
+      setImageDimensions({
+        width: desiredHeight * aspectRatio,
+        height: desiredHeight
+      });
+    };
+  }, []);
+
   const handleTemplateClick = (templateId) => {
     if (isAuthenticated) {
       navigate(`/TemplateEditPage/${templateId}`);
     } else {
-      navigate('/SignIn');
+      navigate('/signin');
     }
   };
 
@@ -47,12 +66,21 @@ const TemplatePage = () => {
       </div>
       <div className="flex flex-row justify-evenly cursor-pointer">
         {Templates.map((item) => (
-          <div className="w-56" key={item.id} onClick={() => handleTemplateClick(item.id)}>
-            <img src={item.img} alt={item.name} />
+          <div
+            className="template-container"
+            key={item.id}
+            onClick={() => handleTemplateClick(item.id)}
+            style={{ width: imageDimensions.width, height: imageDimensions.height }}
+          >
+            <img
+              src={item.img}
+              alt={item.name}
+              className="template-image"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} // Keep image size unchanged
+            />
           </div>
         ))}
       </div>
-      
     </div>
   );
 };

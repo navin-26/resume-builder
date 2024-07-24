@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faMapMarkerAlt, faCircle } from '@fortawesome/free-solid-svg-icons';
 
 const ResumePreview = ({ data }) => {
   const defaultData = {
@@ -65,9 +65,10 @@ const ResumePreview = ({ data }) => {
       };
     });
   };
+
   const mergeProjectsData = (projectArray, defaultProject) => {
     return projectArray.map((proj, index) => {
-      const defaultProj= defaultProject[index] || defaultProject[0];
+      const defaultProj = defaultProject[index] || defaultProject[0];
       return {
         projectTitle: proj.projectTitle || defaultProj.projectTitle,
         description: proj.description || defaultProj.description,
@@ -92,91 +93,87 @@ const ResumePreview = ({ data }) => {
   };
 
   return (
-    <div className="border p-12 py-14 rounded bg-white font-sans text-sm mx-auto overflow-hidden text-gray-800 text-[15px] font-medium h-[1000px]">
-      <div className="text-center mb-6 border-b pb-4 border-purple-950 text-green-500">
-        <h2 className="text-[40px] font-bold uppercase mb-5">{`${previewData.fname} ${previewData.lname}`}</h2>
-        <div className="flex flex-col md:flex-row md:justify-center md:items-center space-y-2 md:space-y-0 md:space-x-4 text-black">
-          <p className="text-lg flex items-center">
-            <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-            {previewData.email}
+    <div className='border h-[11.69in] p-12 py-14 rounded bg-white font-sans text-sm mx-auto overflow-hidden text-black text-[15px] font-medium'>
+      <div className='flex flex-row justify-between space-x-14 py-10 px-3 border-b border-gray-800  '>
+        <div className=''>
+            <h2 className="text-[40px] font-bold uppercase mb-5">{previewData.fname}</h2>
+            <h2 className="text-[40px] font-bold uppercase mb-5 ">{previewData.lname}</h2>
+        </div>
+        <div className='flex flex-col from-neutral-600s'>
+          <p className="text-lg flex items-center ">
+            
+            {previewData.city + ", " + previewData.state}
           </p>
           <p className="text-lg flex items-center">
-            <FontAwesomeIcon icon={faPhone} className="mr-2" />
+            
             {previewData.phone}
           </p>
           <p className="text-lg flex items-center">
-            <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-            {`${previewData.city}, ${previewData.state}`}
+            
+            {previewData.email}
           </p>
         </div>
       </div>
-
-      <h3 className="text-[18px] mt-3 pb-2 uppercase text-green-500 font-bold">SUMMARY</h3>
-      <p className="mb-4">{previewData.summary}</p>
-
-      <h3 className="text-[18px] font-bold my-6 pt-4 uppercase border-t border-purple-950 text-green-500">EDUCATION</h3>
-      {previewData.education.map((edu, index) => (
-        <div key={index} className="mt-2">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-            <div className="flex-1">
-              <p className="font-bold uppercase">{edu.institute}</p>
-              <p className="mt-2 uppercase">{`${edu.degree} - ${edu.specialization}`}</p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="">{edu.percentage}%</p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="font-bold">{edu.startDate} - {edu.endDate}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-
-      <h3 className="text-[18px] font-bold my-5 border-t pb-3 pt-6 border-purple-950 uppercase text-green-500">EXPERIENCE</h3>
-      {previewData.experience.map((exp, index) => (
-        <div key={index} className="my-3">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-            <div className="flex-1">
-              <p className="font-bold">{exp.companyName}</p>
-            </div>
-            <div className="flex-1">
-              <p className="">{exp.position}</p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="font-bold">{exp.startDate} - {exp.endDate}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-
-      <div className="border-b pb-4 mb-4 border-purple-950"></div>
-
-      <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-green-500">SKILLS</h3>
-      <div className="flex flex-wrap justify-start my-5">
-        {previewData.skills.map((skill, index) => (
-          <div key={index} className="bg-black text-white rounded-full px-4 py-2 mx-2 my-2 flex items-center">
-            <p className="mr-2">{skill}</p>
-          </div>
-        ))}
+      <div className='flex flex-col justify-between px-3 mt-2 border-b border-gray-800'>
+        <h2 className='font-bold text-[18px] mb-4 bg-blue-100'>ABOUT ME</h2>
+        <p className="mb-4">{previewData.summary}</p>
       </div>
+      <div className='flex flex-row  px-3 border-b border-gray-800'>
+        <div className='w-1/2'>
+          <h3 className="text-[18px] font-bold my-3 py-3  uppercase text-black bg-blue-100">EXPERIENCE</h3>
+          {previewData.experience.map((exp, index) => (
+                <div key={index} className="my-3">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+                    <div className="flex-1">
+                        <p className="font-bold mb-2">{exp.companyName}</p>
+                        <p className="mb-2">{exp.position}</p>
+                        <p className="font-bold">{exp.startDate} - {exp.endDate}</p>
+                    </div>
+                </div>
+                </div>
+            ))}
 
-      <div className="border-b pb-4 mb-4 border-purple-950"></div>
-
-      <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-green-500">PROJECTS</h3>
-      {previewData.projects.map((proj, index) => (
-        <div key={index} className="flex justify-between items-center my-5">
-          <div className="flex-1 uppercase">
-            <p className="font-bold">{proj.projectTitle}</p>
-          </div>
-          <div className="flex-1 text-wrap">
-            <p className="my-3">{proj.description}</p>
-          </div>
-          <div className="flex-1 text-right">
-            <p className="font-bold">{proj.startDate} - {proj.endDate}</p>
-          </div>
         </div>
-      ))}
+        <div className='w-1/2'>
+        <h3 className="text-[18px] font-bold my-3 py-3  uppercase text-black bg-blue-100 ">Education</h3>
+        {previewData.education.map((edu, index) => (
+                    <div className="flex flex-row md:items-center mb-4" key={index}>
+                      <div className="">
+                            <p className="font-bold uppercase">{edu.institute}</p>
+                            <p className="mt-2 uppercase">{edu.degree + " " + edu.specialization}</p>
+                            <p className="font-bold">{edu.startDate} - {edu.endDate}</p>
+                            <span>{edu.percentage}%</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                ))}
+        </div>
+      </div>
+      <div className="border-b border-gray-800 px-3">
+            <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-black bg-blue-100">SKILLS</h3>
+            <div className="flex flex-wrap justify-start my-5">
+                {previewData.skills.map((skill, index) => (
+                <div key={index} className=" text-black  px-4 py-2 mx-2 my-2 flex items-center text-[15px]">
+                    <FontAwesomeIcon icon={faCircle} className="mr-2 size-2" />
+                    <p className="mr-2"> {skill}</p>
+                </div>
+                ))}
+            </div>
+        </div>
+        <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-black px-3 bg-blue-100">PROJECTS</h3>
+            <div className="px-3">
+                {previewData.projects.map((proj, index) => (
+                    <div key={index} className="flex flex-col justify-between my-2">
+                        <p className="font-bold">{proj.projectTitle + " (" + proj.startDate + "-" + proj.endDate + ")"}</p>
+                        <p className="my-3 text-justify">{proj.description}</p>
+                    </div>
+                ))}
+            </div>
+      
     </div>
+    
   );
 };
 
