@@ -11,20 +11,9 @@ const EducationInfo = ({ data, setData }) => {
       i === index ? { ...qualification, [name]: value } : qualification
     );
 
-    // Ensure start year is less than end year
-    if (name === 'startDate' || name === 'endDate') {
-      const startYear = name === 'startDate' ? value : updatedQualifications[index].startDate;
-      const endYear = name === 'endDate' ? value : updatedQualifications[index].endDate;
+    
 
-      if (startYear && endYear && parseInt(startYear, 10) > parseInt(endYear, 10)) {
-        alert('End year must be greater than start year');
-        return;
-      }
-
-      setData({ ...data, education: updatedQualifications });
-    } else {
-      setData({ ...data, education: updatedQualifications });
-    }
+    setData({ ...data, education: updatedQualifications });
   };
 
   const addQualification = () => {
