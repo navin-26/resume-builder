@@ -32,10 +32,31 @@ const Templates = [
   }
 ];
 
+const defaultStyles = {
+  1: {
+    textColor: '#25093F', // Default color for template 1
+    fontStyle: 'sans' // Default font for template 1
+  },
+  2: {
+    textColor: '#333333', // Default color for template 2
+    fontStyle: 'Courier New, monospace' // Default font for template 2
+  },
+  3: {
+    textColor: '#00000', // Default color for template 3
+    fontStyle: 'sans' // Default font for template 3
+  },
+  4: {
+    textColor: '#331900', // Default color for template 4
+    fontStyle: 'sans' // Default font for template 4
+  }
+};
+
 const TemplateEditPage = () => {
   const { templateId } = useParams();
   const navigate = useNavigate();
   const selectedTemplate = Templates.find(template => template.id === parseInt(templateId));
+
+  const { textColor, fontStyle } = defaultStyles[templateId] || defaultStyles[1]; // Fallback to template 1
 
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({
@@ -72,7 +93,9 @@ const TemplateEditPage = () => {
         description: ''
       }
     ],
-    Summary: ''
+    summary: '',
+    textColor: textColor, // Set default text color
+    fontStyle: fontStyle // Set default font style
   });
 
   const steps = [
@@ -80,8 +103,8 @@ const TemplateEditPage = () => {
     <EducationInfo data={formData} setData={setFormData} />,
     <Experience data={formData} setData={setFormData} />,
     <Skills data={formData} setData={setFormData} />,
-    <Projects data={formData} setData={setFormData} />,
-    <Summary data={formData} setData={setFormData} />
+    <Summary data={formData} setData={setFormData} />,
+    <Projects data={formData} setData={setFormData} />
   ];
 
   const handleNext = () => {

@@ -37,7 +37,9 @@ const ResumePreview = ({ data }) => {
         endDate: '2024',
         description: 'A web application to build resumes built using MERN.',
       }
-    ]
+    ],
+    textColor: '#000000', // Default text color
+  fontStyle: 'Arial, sans-serif' // Default font style
   };
 
   const mergeEducationData = (educationArray, defaultEducation) => {
@@ -65,9 +67,10 @@ const ResumePreview = ({ data }) => {
       };
     });
   };
+
   const mergeProjectsData = (projectArray, defaultProject) => {
     return projectArray.map((proj, index) => {
-      const defaultProj= defaultProject[index] || defaultProject[0];
+      const defaultProj = defaultProject[index] || defaultProject[0];
       return {
         projectTitle: proj.projectTitle || defaultProj.projectTitle,
         description: proj.description || defaultProj.description,
@@ -89,93 +92,102 @@ const ResumePreview = ({ data }) => {
     experience: data.experience.length ? mergeExperienceData(data.experience, defaultData.experience) : defaultData.experience,
     skills: data.skills.length ? Array.from(new Set(data.skills)) : defaultData.skills,
     projects: data.projects.length ? mergeProjectsData(data.projects, defaultData.projects) : defaultData.projects,
+    textColor: data.textColor || defaultData.textColor, // Uses the selected text color or default
+    fontStyle: data.fontStyle || defaultData.fontStyle // Uses the selected font style or default
+    
+  };
+
+  // Apply color and font style to the entire preview
+  const previewStyle = {
+    color: previewData.textColor,
+    fontFamily: previewData.fontStyle
   };
 
   return (
-    <div className="border p-12 py-14 rounded bg-white font-sans text-sm mx-auto overflow-hidden text-gray-800 text-[15px] font-medium h-[1000px]">
-      <div className="text-center mb-6 border-b pb-4 border-purple-950 text-purple-900">
-        <h2 className="text-[40px] font-bold uppercase mb-5">{`${previewData.fname} ${previewData.lname}`}</h2>
-        <div className="flex flex-col md:flex-row md:justify-center md:items-center space-y-2 md:space-y-0 md:space-x-4 text-black">
-          <p className="text-lg flex items-center">
+    <div className="border p-8 rounded bg-white font-sans text-sm mx-auto overflow-hidden h-[1000px]">
+      <div className="bg-gray-100 p-6 rounded-t">
+        <h2 className="text-3xl font-bold uppercase mb-2 text-center" style={previewStyle}>{`${previewData.fname} ${previewData.lname}`}</h2>
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-2 md:space-y-0">
+          <p className="text-lg flex items-center" style={previewStyle}>
             <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
             {previewData.email}
           </p>
-          <p className="text-lg flex items-center">
+          <p className="text-lg flex items-center" style={previewStyle}>
             <FontAwesomeIcon icon={faPhone} className="mr-2" />
             {previewData.phone}
           </p>
-          <p className="text-lg flex items-center">
+          <p className="text-lg flex items-center" style={previewStyle}>
             <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
             {`${previewData.city}, ${previewData.state}`}
           </p>
         </div>
       </div>
 
-      <h3 className="text-[18px] mt-3 pb-2 uppercase text-purple-950 font-bold">SUMMARY</h3>
-      <p className="mb-4">{previewData.summary}</p>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2 uppercase text-gray-700 " style={previewStyle}>Summary</h3>
+        <p className="mb-6" style={previewStyle}>{previewData.summary}</p>
 
-      <h3 className="text-[18px] font-bold my-6 pt-4 uppercase border-t border-purple-950 text-purple-950">EDUCATION</h3>
-      {previewData.education.map((edu, index) => (
-        <div key={index} className="mt-2">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-            <div className="flex-1">
-              <p className="font-bold uppercase">{edu.institute}</p>
-              <p className="mt-2 uppercase">{`${edu.degree} - ${edu.specialization}`}</p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="">{edu.percentage}%</p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="font-bold">{edu.startDate} - {edu.endDate}</p>
+        <h3 className="text-xl font-bold mb-4 uppercase text-gray-700 border-t border-violet-950 py-4" style={previewStyle}>Education</h3>
+        {previewData.education.map((edu, index) => (
+          <div key={index} className="mb-4" style={previewStyle}>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+              <div className="flex-1">
+                <p className="font-bold uppercase">{edu.institute}</p>
+                <p className="mt-1 uppercase">{`${edu.degree} - ${edu.specialization}`}</p>
+              </div>
+              <div className="flex-1 text-center">
+                <p className="">{edu.percentage}%</p>
+              </div>
+              <div className="flex-1 text-center">
+                <p className="font-bold">{edu.startDate} - {edu.endDate}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      <h3 className="text-[18px] font-bold my-5 border-t pb-3 pt-6 border-purple-950 uppercase text-purple-950">EXPERIENCE</h3>
-      {previewData.experience.map((exp, index) => (
-        <div key={index} className="my-3">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-            <div className="flex-1">
-              <p className="font-bold">{exp.companyName}</p>
-            </div>
-            <div className="flex-1">
-              <p className="">{exp.position}</p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="font-bold">{exp.startDate} - {exp.endDate}</p>
+        <h3 className="text-xl font-bold mb-4 uppercase text-gray-700 border-t border-violet-950 py-4" style={previewStyle}>Experience</h3>
+        {previewData.experience.map((exp, index) => (
+          <div key={index} className="mb-4" style={previewStyle}>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+              <div className="flex-1">
+                <p className="font-bold">{exp.companyName}</p>
+              </div>
+              <div className="flex-1">
+                <p className="">{exp.position}</p>
+              </div>
+              <div className="flex-1 text-center">
+                <p className="font-bold">{exp.startDate} - {exp.endDate}</p>
+              </div>
             </div>
           </div>
+        ))}
+
+        <h3 className="text-xl font-bold mb-4 uppercase text-gray-700 border-t border-violet-950 py-4" style={previewStyle}>Skills</h3>
+        <div className="flex flex-wrap justify-start mb-6">
+          {previewData.skills.map((skill, index) => (
+            <div key={index} className="bg-gray-200 rounded-full px-4 py-2 mr-2 mb-2 flex items-center" style={previewStyle}>
+              <p className="mr-2">{skill}</p>
+            </div>
+          ))}
         </div>
-      ))}
 
-      <div className="border-b pb-4 mb-4 border-purple-950"></div>
-
-      <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-purple-950">SKILLS</h3>
-      <div className="flex flex-wrap justify-start my-5">
-        {previewData.skills.map((skill, index) => (
-          <div key={index} className="bg-black text-white rounded-full px-4 py-2 mx-2 my-2 flex items-center">
-            <p className="mr-2">{skill}</p>
+        <h3 className="text-xl font-bold mb-4 uppercase text-gray-700 border-t border-violet-950 py-4" style={previewStyle}>Projects</h3>
+        {previewData.projects.map((proj, index) => (
+          <div key={index} className="mb-4" style={previewStyle}>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+              <div className="flex-1 uppercase">
+                <p className="font-bold">{proj.projectTitle}</p>
+              </div>
+              <div className="flex-1 text-wrap text-center">
+                <p className="">{proj.description}</p>
+              </div>
+              <div className="flex-1 text-center">
+                <p className="font-bold">{proj.startDate} - {proj.endDate}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-
-      <div className="border-b pb-4 mb-4 border-purple-950"></div>
-
-      <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-purple-950">PROJECTS</h3>
-      {previewData.projects.map((proj, index) => (
-        <div key={index} className="flex justify-between items-center my-5">
-          <div className="flex-1 uppercase">
-            <p className="font-bold">{proj.projectTitle}</p>
-          </div>
-          <div className="flex-1 text-wrap">
-            <p className="my-3">{proj.description}</p>
-          </div>
-          <div className="flex-1 text-right">
-            <p className="font-bold">{proj.startDate} - {proj.endDate}</p>
-          </div>
-        </div>
-      ))}
     </div>
   );
 };
