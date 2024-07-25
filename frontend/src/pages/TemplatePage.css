@@ -7,7 +7,7 @@
   
   .template-container:hover {
     transform: rotate(3deg) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 16px 26px rgba(0, 0, 0, 0.3);
   }
   
   .template-image {

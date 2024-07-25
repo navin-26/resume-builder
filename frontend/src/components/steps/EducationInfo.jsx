@@ -41,15 +41,15 @@ const EducationInfo = ({ data, setData }) => {
   };
 
   return (
-    <div className="text-white">
-      <h2 className="text-2xl font-bold mb-4">Education Info</h2>
+    <div className="text-black">
+      <h2 className="text-[26px] text-cyan-800  font-bold mb-4">Education Info</h2>
 
       {data.education.length < 3 && (
         <div className="flex justify-end">
           <button
             type="button"
             onClick={addQualification}
-            className="bg-black border-2 border-yellow-500 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black"
+            className="bg-black border-2  text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black"
           >
             Add
           </button>
@@ -64,7 +64,7 @@ const EducationInfo = ({ data, setData }) => {
               name="institute"
               value={qualification.institute}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-black text-white"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
           </div>
           <div className="mb-4">
@@ -74,7 +74,7 @@ const EducationInfo = ({ data, setData }) => {
               name="degree"
               value={qualification.degree}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-black text-white"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
           </div>
           <div className="mb-4">
@@ -84,7 +84,7 @@ const EducationInfo = ({ data, setData }) => {
               name="specialization"
               value={qualification.specialization}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-black text-white"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
           </div>
           <div className="mb-4">
@@ -94,7 +94,7 @@ const EducationInfo = ({ data, setData }) => {
               name="percentage"
               value={qualification.percentage}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-black text-white"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
           </div>
           <div className="mb-4">
@@ -107,7 +107,7 @@ const EducationInfo = ({ data, setData }) => {
               step="1"
               value={qualification.startDate || ''}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-white text-black"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-white text-black"
             />
           </div>
           <div className="mb-4">
@@ -120,7 +120,7 @@ const EducationInfo = ({ data, setData }) => {
               step="1"
               value={qualification.endDate || ''}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-white text-black"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-white text-black"
             />
           </div>
           {data.education.length > 1 && (

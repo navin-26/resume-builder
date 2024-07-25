@@ -20,16 +20,15 @@ const SignUp = () => {
 
   return (
     <div
-      className="relative bg-cover bg-center h-screen flex items-center justify-center"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      className="relative bg-cover bg-center h-screen flex items-center justify-center container4"
     >
-      <div className="container border-0 border-white lg:w-1/4 md:w-1/3 sm:w-11/12 xl:p-6 sm:p-3 bg-white bg-opacity-10 rounded-md">
+      <div className="container border-0 border-white lg:w-1/4 md:w-1/3 sm:w-11/12 xl:p-6 sm:p-3 bg-black bg-opacity-10 rounded-md">
         <form className="flex flex-col space-y-6 items-center" onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="text-3xl font-bold mb-3 text-white">SIGN UP</h1>
+          <h1 className="text-3xl font-bold mb-3 text-black">SIGN UP</h1>
           <button
             type="button"
             onClick={googleAuth}
-            className="p-2 border border-gray-300 w-2/3 rounded-full bg-white hover:bg-black hover:text-white flex items-center justify-center space-x-2 text-[10px]"
+            className="p-2 border border-gray-300 w-2/3 rounded-full bg-black hover:bg-yellow-500 hover:text-black text-white flex items-center justify-center space-x-2 text-[10px]"
           >
             <FaGoogle size={18} />
             <span>SIGN UP WITH GOOGLE</span>

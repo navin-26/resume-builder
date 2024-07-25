@@ -9,8 +9,8 @@ const PersonalInfo = ({ data, setData }) => {
   };
 
   return (
-    <div className='text-white'>
-      <h2 className="text-2xl font-bold mb-4">Personal Info</h2>
+    <div className='text-black'>
+      <h2 className="text-[26px] text-cyan-800 font-bold mb-4 ">Personal Info</h2>
       <div className="grid grid-cols-2 gap-4">
         <div className="mb-4">
           <label className="block">First Name</label>
@@ -19,7 +19,7 @@ const PersonalInfo = ({ data, setData }) => {
             name="fname"
             value={data.fname}
             onChange={handleChange}
-            className="w-full p-2 border rounded bg-black text-white"
+            className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
           />
         </div>
         <div className="mb-4">
@@ -29,7 +29,7 @@ const PersonalInfo = ({ data, setData }) => {
             name="lname"
             value={data.lname}
             onChange={handleChange}
-            className="w-full p-2 border rounded bg-black text-white"
+            className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
           />
         </div>
         <div className="mb-4">
@@ -39,7 +39,7 @@ const PersonalInfo = ({ data, setData }) => {
             name="email"
             value={data.email}
             onChange={handleChange}
-            className="w-full p-2 border rounded bg-black text-white"
+            className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
           />
         </div>
         <div className="mb-4">
@@ -49,7 +49,7 @@ const PersonalInfo = ({ data, setData }) => {
             name="phone"
             value={data.phone}
             onChange={handleChange}
-            className="w-full p-2 border rounded bg-black text-white"
+            className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
           />
         </div>
         <div className="mb-4">
@@ -59,7 +59,7 @@ const PersonalInfo = ({ data, setData }) => {
             name="city"
             value={data.city}
             onChange={handleChange}
-            className="w-full p-2 border rounded bg-black text-white"
+            className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
           />
         </div>
         <div className="mb-4">
@@ -69,7 +69,7 @@ const PersonalInfo = ({ data, setData }) => {
             name="state"
             value={data.state}
             onChange={handleChange}
-            className="w-full p-2 border rounded bg-black text-white"
+            className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
           />
         </div>
       </div>

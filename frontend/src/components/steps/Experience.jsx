@@ -37,15 +37,15 @@ const ExperienceInfo = ({ data, setData }) => {
   };
 
   return (
-    <div className="text-white">
-      <h2 className="text-2xl font-bold mb-4">Work Experience</h2>
+    <div className="text-black">
+      <h2 className="text-[26px] text-cyan-800  font-bold mb-4">Work Experience</h2>
 
       {data.experience.length < 3 && (
         <div className="flex justify-end">
           <button
             type="button"
             onClick={addExperience}
-            className="bg-black border-2 border-yellow-500 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black"
+            className="bg-black border-2  text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black"
           >
             Add
           </button>
@@ -60,7 +60,7 @@ const ExperienceInfo = ({ data, setData }) => {
               name="companyName"
               value={experience.companyName}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-black text-white"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
           </div>
           <div className="mb-4">
@@ -70,7 +70,7 @@ const ExperienceInfo = ({ data, setData }) => {
               name="position"
               value={experience.position}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-black text-white"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
           </div>
           <div className="mb-4">
@@ -83,7 +83,7 @@ const ExperienceInfo = ({ data, setData }) => {
               step="1"
               value={experience.startDate || ''}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-white text-black"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-white text-black"
             />
           </div>
           <div className="mb-4">
@@ -96,7 +96,7 @@ const ExperienceInfo = ({ data, setData }) => {
               step="1"
               value={experience.endDate || ''}
               onChange={(e) => handleChange(e, index)}
-              className="w-full p-2 border rounded bg-white text-black"
+              className="w-full p-2 border-[3px] border-cyan-800 rounded bg-white text-black"
             />
           </div>
         
@@ -105,7 +105,7 @@ const ExperienceInfo = ({ data, setData }) => {
               <button
                 type="button"
                 onClick={() => deleteExperience(index)}
-                className="bg-transparent text-white hover:text-red-600 p-2 rounded"
+                className="bg-transparent text-black hover:text-red-600 p-2 rounded"
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>

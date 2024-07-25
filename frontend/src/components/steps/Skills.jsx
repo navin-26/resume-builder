@@ -27,8 +27,8 @@ const Skills = ({ data, setData }) => {
   };
 
   return (
-    <div className='text-white'>
-      <h2 className="text-2xl font-bold mb-4">Skills</h2>
+    <div className='text-black'>
+      <h2 className="text-[26px] text-cyan-800  font-bold mb-4">Skills</h2>
       <div className='mb-4'>
         <label className="block">Enter a Skill</label>
         <input
@@ -36,7 +36,7 @@ const Skills = ({ data, setData }) => {
           value={skill}
           onChange={handleInputChange}
           onKeyDown={handleAddSkill}
-          className="w-full p-2 border rounded bg-black text-white"
+          className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
         />
       </div>
       <div className="mb-4">
@@ -45,7 +45,7 @@ const Skills = ({ data, setData }) => {
           {data.skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-white text-black rounded-full px-4 py-2 mr-2 mb-2 flex items-center"
+              className="bg-black text-white rounded-full px-4 py-2 mr-2 mb-2 flex items-center"
             >
               {skill}
               <FontAwesomeIcon

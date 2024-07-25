@@ -59,15 +59,15 @@ const TemplatePage = () => {
   };
 
   return (
-    <div className="bg-cover bg-center text-white h-screen" style={{ backgroundImage: `url(${image})` }}>
-      <div className="w-10/12 h-2/6 bg-white text-black subpixel-antialiased px-10 my-12 tracking-wider" style={{ fontWeight: '600', fontSize: '5.5rem' }}>
+    <div className="bg-cover bg-center text-white h-screen container3 pt-10" >
+      <div className="w-10/12 h-2/6 text-white bg-cyan-800  px-10  tracking-wider font-bold text-[4rem]">
         <p>SELECT A</p>
         <p>TEMPLATE</p>
       </div>
-      <div className="flex flex-row justify-evenly cursor-pointer">
+      <div className="flex flex-row justify-evenly cursor-pointer mt-8">
         {Templates.map((item) => (
           <div
-            className="template-container"
+            className="template-container border-2 border-black"
             key={item.id}
             onClick={() => handleTemplateClick(item.id)}
             style={{ width: imageDimensions.width, height: imageDimensions.height }}

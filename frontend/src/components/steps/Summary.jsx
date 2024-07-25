@@ -10,14 +10,13 @@ const Summary = ({ data, setData }) => {
 
   return (
     <div className="text-black">
-      <h2 className="text-2xl font-bold mb-4">Career Objective</h2>
+      <h2 className="text-2xl font-bold mb-4 text-[26px] text-cyan-800 ">Career Objective</h2>
       <div className="mb-4 col-span-2">
-        <label className="block text-white">Summary</label>
         <textarea
           name="summary"
           value={data.summary || ''}
           onChange={handleChange}
-          className="w-full p-2 border rounded bg-gray-200 text-black h-24"
+          className="w-full p-2 border rounded bg-gray-200 text-black h-24 border-cyan-800"
           maxLength="300"
         />
         {data.summary && data.summary.length === 300 && (
@@ -32,7 +31,7 @@ const Summary = ({ data, setData }) => {
           name="textColor"
           value={data.textColor}
           onChange={handleChange}
-          className="w-full p-2 border rounded text-black cursor-pointer"
+          className="w-full p-2 border border-cyan-800 rounded text-black cursor-pointer"
           style={{ height: '40px', width: '100%' }} // Improved styling
         />
       </div>
@@ -43,7 +42,7 @@ const Summary = ({ data, setData }) => {
           name="fontStyle"
           value={data.fontStyle}
           onChange={handleChange}
-          className="w-full p-2 border rounded text-black"
+          className="w-full p-2 border rounded text-black border-cyan-800"
         >
           <option value="Arial, sans-serif">Arial</option>
           <option value="Courier New, monospace">Courier New</option>
