@@ -9,7 +9,7 @@ const Summary = ({ data, setData }) => {
   };
 
   return (
-    <div className="text-black">
+    <div className="text-black animate-fadeInLeft">
       <h2 className="text-2xl font-bold mb-4 text-[26px] text-cyan-800 ">Career Objective</h2>
       <div className="mb-4 col-span-2">
         <textarea

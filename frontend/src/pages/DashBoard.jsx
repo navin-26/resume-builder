@@ -39,25 +39,9 @@ const Dashboard = () => {
 
   return (
     <div className="bg-cover bg-center text-white h-screen px-28" style={{ backgroundImage: `url(${image})` }}>
-      <h1 className="text-7xl font-semibold tracking-wide py-24">DASHBOARD</h1>
-      <div className="flex flex-row justify-start items-center gap-8">
-        {templates.map((item) => (
-          <div
-            className="w-52 h-72 bg-gray-200 cursor-pointer flex items-center justify-center overflow-hidden"
-            key={item.id}
-            onClick={() => toTemplateEditPage(item.id)}
-          >
-            <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
-          </div>
-        ))}
-        <button
-          className="w-52 h-72 bg-black border border-gray-200 opacity-60 flex items-center justify-center"
-          onClick={toTemplate}
-        >
-          <span className="text-[50px] text-yellow-500">+</span>
-        </button>
+      <div className='h-64 w-40 bg-slate-200 '>
+
       </div>
-      <div className="bg-slate-300 absolute h-12 w-full right-0 left-0 bottom-0"></div>
     </div>
   );
 };

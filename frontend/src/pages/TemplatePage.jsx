@@ -59,8 +59,8 @@ const TemplatePage = () => {
   };
 
   return (
-    <div className="bg-cover bg-center text-white h-screen container3 pt-10" >
-      <div className="w-10/12 h-2/6 text-white bg-cyan-800  px-10  tracking-wider font-bold text-[4rem]">
+    <div className="bg-cover bg-center text-white h-screen container3 pt-10">
+      <div className="w-10/12 h-2/6 text-white bg-cyan-800 px-10 tracking-wider font-bold text-[4rem] slide-in-left ">
         <p>SELECT A</p>
         <p>TEMPLATE</p>
       </div>

@@ -135,16 +135,16 @@ const TemplateEditPage = () => {
   }, [templateId]);
 
   return (
-    <div className="flex relative bg-cover bg-center text-black h-auto py-8 container5">
-      <div className="w-1/2 p-8 ">
+    <div className="flex relative bg-cover bg-center text-black h-auto py-8 container5 animate-fadeInLeft">
+      <div className="w-1/2 p-8 animate-slideUp">
         {steps[currentStep]}
-        <div className="flex justify-between mt-4">
-          {currentStep > 0 && <button onClick={handlePrev} className="bg-black border-2  text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Previous</button>}
-          {currentStep < steps.length - 1 && <button onClick={handleNext} className="bg-black border-2  text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Next</button>}
-          {currentStep === steps.length - 1 && <button onClick={handlePreview} className="bg-black border-2  text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Preview</button>}
+        <div className="flex justify-between mt-4 animate-slideUp">
+          {currentStep > 0 && <button onClick={handlePrev} className="bg-black border-2 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Previous</button>}
+          {currentStep < steps.length - 1 && <button onClick={handleNext} className="bg-black border-2 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Next</button>}
+          {currentStep === steps.length - 1 && <button onClick={handlePreview} className="bg-black border-2 text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black">Preview</button>}
         </div>
       </div>
-      <div className="w-1/2 p-8 bg-gray-400 bg-opacity-60">
+      <div className="w-1/2 p-8 bg-gray-400 bg-opacity-60 animate-fadeInRight">
         <Suspense fallback={<div>Loading...</div>}>
           {ResumePreviewComponent && <ResumePreviewComponent data={formData} />}
         </Suspense>

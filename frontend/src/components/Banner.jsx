@@ -42,7 +42,7 @@ const Banner = () => {
       } else {
         clearInterval(typingInterval);
       }
-    }, 70); // Adjust the typing speed here (80ms per character)
+    }, 100); // Adjust the typing speed here (80ms per character)
 
     return () => clearInterval(typingInterval); // Cleanup on component unmount
   }, [isAuthenticated, user]);
@@ -86,7 +86,7 @@ const Banner = () => {
       </div>
       <div className="relative md:pl-24 sm:pl-12 md:w-1/2 sm:w-3/4 h-screen content-center">
         <div>
-          <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[80px] md:text-[75px] sm:text-[35px] font-bold leading-none text-left text-cyan-800">
+          <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[80px] md:text-[75px] sm:text-[35px] font-bold leading-none text-left text-cyan-800 uppercase">
             {displayedText}
             <span className="blinking-cursor">|</span>
           </h5>

@@ -1,17 +1,31 @@
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 1s ease-in-out forwards;
+}
+
 .template-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .template-container:hover {
-    transform: rotate(3deg) scale(1.05);
-    box-shadow: 0 16px 26px rgba(0, 0, 0, 0.3);
-  }
-  
-  .template-image {
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.template-container:hover {
+  transform: rotate(3deg) scale(1.05);
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.3);
+}
+
+.template-image {
+  display: block;
+  transition: transform 0.3s ease;
+}

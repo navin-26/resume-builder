@@ -42,7 +42,7 @@ const ProjectInfo = ({ data, setData }) => {
   };
 
   return (
-    <div className="text-black">
+    <div className="text-black animate-fadeInLeft">
       <h2 className="text-[26px] text-cyan-800  font-bold mb-4">Project Info</h2>
 
       {data.projects.length < 2 && (

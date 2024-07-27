@@ -37,7 +37,7 @@ const ExperienceInfo = ({ data, setData }) => {
   };
 
   return (
-    <div className="text-black">
+    <div className="text-black animate-fadeInLeft">
       <h2 className="text-[26px] text-cyan-800  font-bold mb-4">Work Experience</h2>
 
       {data.experience.length < 3 && (

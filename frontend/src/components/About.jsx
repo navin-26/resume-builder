@@ -4,7 +4,7 @@ import backgroundImage from '../assets/bg-1.png';
 const About = () => {
   return (
     <div className="relative bg-white bg-center text-white h-screen container3 " >
-      <h4 className="absolute top-8 left-1/2 transform -translate-x-1/2 text-[80px] font-bold text-yellow-500">
+      <h4 className="absolute top-0 left-1/2 transform -translate-x-1/2 text-[80px] font-bold text-yellow-500">
         ABOUT
       </h4>
 

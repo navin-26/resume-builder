@@ -27,7 +27,7 @@ const Skills = ({ data, setData }) => {
   };
 
   return (
-    <div className='text-black'>
+    <div className='text-black animate-fadeInLeft'>
       <h2 className="text-[26px] text-cyan-800  font-bold mb-4">Skills</h2>
       <div className='mb-4'>
         <label className="block">Enter a Skill</label>

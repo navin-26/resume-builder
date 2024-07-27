@@ -15,18 +15,18 @@ import './App.css';
 const App = () => (
   <AuthProvider>
     <Router>
-    <Routes>
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        
+
         <Route element={<PrivateRoute />}>
           <Route path="/UserHome" element={<UserHome />} />
           <Route path="/TemplateEditPage/:templateId" element={<TemplateEditPage />} />
           <Route path="/Dashboard" element={<DashBoard />} />
           <Route path="/PreviewPage" element={<PreviewPage />} />
         </Route>
-        
+
         <Route path="/Templates" element={<Templates />} />
       </Routes>
     </Router>

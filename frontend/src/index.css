@@ -173,3 +173,93 @@ code {
   background-color: white;
 }
 
+
+/* edit page*/
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.5s ease-in-out forwards;
+}
+
+/*preview page*/
+
+.resume-container {
+  position: relative;
+  width: 8.27in; /* Adjust based on your needs */
+  height: auto;
+  background: white;
+  overflow: hidden;
+}
+
+.resume-content {
+  position: relative;
+  transition: opacity 2s ease-out;
+}
+
+.resume-hidden {
+  opacity: 0;
+}
+
+.resume-visible {
+  opacity: 1;
+}
+
+.laser-light {
+  position: absolute;
+  top: -100%; /* Start the laser off-screen */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, green, transparent); /* Gradient from top to bottom */
+  animation: laser 1s linear forwards;
+}
+
+@keyframes laser {
+  0% {
+    top: -100%; /* Move from above the viewport */
+  }
+  100% {
+    top: 100%; /* Move to below the viewport */
+    background: transparent; /* Make sure green light disappears after animation */
+  }
+}
+
+
