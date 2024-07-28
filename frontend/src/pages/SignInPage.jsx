@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import backgroundImage from '../assets/bg-2.webp';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignIn = () => {

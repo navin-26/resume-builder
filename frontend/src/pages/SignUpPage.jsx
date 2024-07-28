@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '../assets/bg-3.webp';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignUp = () => {

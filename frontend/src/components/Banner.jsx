@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './context/AuthContext';
-import backgroundImage from '../assets/bg-1.webp';
 import './Banner.css';
 
 const Banner = () => {

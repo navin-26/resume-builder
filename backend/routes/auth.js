@@ -28,7 +28,7 @@ router.get(
     }),
     (req, res) => {
         // Successful authentication, redirect to UserHome
-        res.redirect(process.env.CLIENT_URL + "/");
+        res.redirect(process.env.CLIENT_URL + "/userHome");
     }
 );
 
