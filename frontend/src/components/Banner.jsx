@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth } from './context/AuthContext';
 import './Banner.css';
 
-const Banner = () => {
+const Banner = ({ openModal }) => {
   const { isAuthenticated, logout } = useAuth();
   const [user, setUser] = useState(null);
   const [displayedText, setDisplayedText] = useState('');
@@ -41,14 +41,10 @@ const Banner = () => {
       } else {
         clearInterval(typingInterval);
       }
-    }, 100); // Adjust the typing speed here (80ms per character)
+    }, 100); // Adjust the typing speed here (100ms per character)
 
     return () => clearInterval(typingInterval); // Cleanup on component unmount
   }, [isAuthenticated, user]);
-
-  const handleSignInClick = () => {
-    navigate('/signin');
-  };
 
   const handleLogout = () => {
     logout();
@@ -56,13 +52,7 @@ const Banner = () => {
     navigate('/');
   };
 
-  const toTemplate = () => {
-    if (isAuthenticated) {
-      navigate('/Templates');
-    } else {
-      navigate('/signin');
-    }
-  };
+
 
   return (
     <div className="relative bg-cover bg-center text-cyan-800 h-screen container3">
@@ -77,7 +67,7 @@ const Banner = () => {
         ) : (
           <button
             className="bg-transparent border-none cursor-pointer text-black font-bold hover:text-yellow-500 text-[20px] md:text-[35px]"
-            onClick={handleSignInClick}
+            onClick={openModal}
           >
             SIGN IN
           </button>
@@ -91,7 +81,7 @@ const Banner = () => {
           </h5>
         </div>
         <div className="mt-5 mb-8">
-          <button className="bg-black text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black shadow-xl shadow-black/50 hover:shadow-yellow-500/90" onClick={toTemplate}>
+          <button className="bg-black text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black shadow-xl shadow-black/50 hover:shadow-yellow-500/90" onClick={openModal}>
             GET STARTED
           </button>
         </div>

@@ -50,7 +50,6 @@ const PreviewPage = () => {
         pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save('resume.pdf');
 
-        // Navigate to home after the PDF is downloaded
         navigate('/');
       } catch (error) {
         console.error('Error generating PDF', error);
@@ -61,9 +60,9 @@ const PreviewPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center h-full bg-cover bg-center relative container2">
+    <div className="flex flex-col items-center h-full bg-cover bg-center relative bg-cyan-800 container3">
       <button
-        className="top-14 right-14 font-semibold cursor-pointer bg-black px-3 py-2 rounded-full text-white hover:text-black  hover:bg-yellow-500 border-2 border-yellow-500 w-[150px] fixed"
+        className="top-14 right-14 font-semibold cursor-pointer bg-black px-3 py-2 rounded-full text-white hover:text-black  hover:bg-yellow-500 w-[150px] fixed"
         onClick={handleDownload}
       >
         DOWNLOAD

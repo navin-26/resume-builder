@@ -38,8 +38,8 @@ const ResumePreview = ({ data }) => {
         description: 'A web application to build resumes built using MERN.',
       }
     ],
-    textColor: '#331900', // Default text color
-  fontStyle: 'sans' // Default font style
+    textColor: '#331900', 
+  fontStyle: 'sans' 
   };
 
   const mergeEducationData = (educationArray, defaultEducation) => {
@@ -92,12 +92,11 @@ const ResumePreview = ({ data }) => {
     experience: data.experience.length ? mergeExperienceData(data.experience, defaultData.experience) : defaultData.experience,
     skills: data.skills.length ? Array.from(new Set(data.skills)) : defaultData.skills,
     projects: data.projects.length ? mergeProjectsData(data.projects, defaultData.projects) : defaultData.projects,
-    textColor: data.textColor || defaultData.textColor, // Uses the selected text color or default
-    fontStyle: data.fontStyle || defaultData.fontStyle // Uses the selected font style or default
+    textColor: data.textColor || defaultData.textColor, 
+    fontStyle: data.fontStyle || defaultData.fontStyle 
     
   };
 
-  // Apply color and font style to the entire preview
   const previewStyle = {
     color: previewData.textColor,
     fontFamily: previewData.fontStyle
