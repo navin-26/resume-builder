@@ -23,11 +23,14 @@
     "react-select": "^5.8.0",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://github.io/navin-26/resume-builder",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "cross-env GH_TOKEN=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 gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +51,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6"
   }
