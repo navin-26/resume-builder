@@ -6,7 +6,6 @@ import Experience from '../components/steps/Experience';
 import Skills from '../components/steps/Skills';
 import Projects from '../components/steps/Projects';
 import Summary from '../components/steps/Summary';
-import backgroundImage from '../assets/bg-6.webp';
 import image1 from '../assets/t-1.webp';
 
 const Templates = [
@@ -54,7 +53,6 @@ const defaultStyles = {
 const TemplateEditPage = () => {
   const { templateId } = useParams();
   const navigate = useNavigate();
-  const selectedTemplate = Templates.find(template => template.id === parseInt(templateId));
 
   const { textColor, fontStyle } = defaultStyles[templateId] || defaultStyles[1]; 
   const [currentStep, setCurrentStep] = useState(0);

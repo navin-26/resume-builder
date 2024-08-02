@@ -3,7 +3,7 @@ import backgroundImage from '../assets/bg-1.png';
 
 const About = () => {
   return (
-    <div className="relative bg-white bg-center text-white h-screen container3 " >
+    <div className="relative bg-white bg-center text-white h-screen container3" >
       <h4 className="absolute top-0 left-1/2 transform -translate-x-1/2 text-[80px] font-bold text-yellow-500">
         ABOUT
       </h4>
@@ -17,16 +17,16 @@ const About = () => {
               <span className="green w-3 h-3 bg-green-500 rounded-full"></span>
             </div>
             <h1 className="uppercase text-[18px]">User Benefits</h1>
-            <p className=' mt-4'>
+            <p className='mt-4'>
               <span className="text-yellow-500 font-bold">Ease of Use:</span> User-friendly interface.
             </p>
-            <p className=' mt-4'>
+            <p className='mt-4'>
               <span className="text-yellow-500 font-bold">Customization:</span> Various templates, fonts, and color schemes.
             </p>
-            <p className=' mt-4'>
+            <p className='mt-4'>
               <span className="text-yellow-500 font-bold">Real-Time Preview:</span> See changes as you make them.
             </p>
-            <p className=' mt-4'>
+            <p className='mt-4'>
               <span className="text-yellow-500 font-bold">Time-Saving:</span> Streamlined process for quick creation.
             </p>
           </div>
@@ -38,7 +38,7 @@ const About = () => {
             </div>
             <h1 className='text-[18px]'>How It Works</h1>
             <p className='text-pretty'>
-              <span className="text-yellow-500 font-bold">1. Sign Up/In:</span> Create an account, sign in, or use Google Sign-In.
+              <span className="text-yellow-500 font-bold">1. Sign In:</span> Use Google Sign-In.
             </p>
             <p className='text-balance mt-4'>
               <span className="text-yellow-500 font-bold">2. Choose a Template:</span> Select from various professional templates.
@@ -57,7 +57,16 @@ const About = () => {
               <span className="green w-3 h-3 bg-green-500 rounded-full"></span>
             </div>
             <h1 className='text-[18px]'>About the Team</h1>
-          
+            <p className='mt-4'>
+              <span className="text-yellow-500 font-bold">Skilled Developers:</span> Experts in creating user-friendly applications.
+            </p>
+            
+            <p className='mt-4'>
+              <span className="text-yellow-500 font-bold">Support Champs:</span> Dedicated to providing excellent customer support.
+            </p>
+            <p className='mt-4'>
+              <span className="text-yellow-500 font-bold">Always Improving:</span> Continuously enhancing the app based on feedback.
+            </p>
           </div>
         </div>
       </div>

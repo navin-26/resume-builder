@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import UserHomePage from './pages/UserHomePage';
-import SignInPage from './pages/SignInPage';
 import TemplateEditPage from './pages/TemplateEditPage';
 import Templates from './pages/TemplatePage';
 import PreviewPage from './pages/PreviewPage';
@@ -17,15 +16,13 @@ const AppRoutes = () => {
     <AuthProvider currentPath={location.pathname}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signin" element={<SignInPage />} />
         <Route path="/userHome" element={<UserHomePage />} />
-
         <Route element={<PrivateRoute />}>
           <Route path="/TemplateEditPage/:templateId" element={<TemplateEditPage />} />
+          <Route path="/Templates" element={<Templates />} />
+
           <Route path="/PreviewPage" element={<PreviewPage />} />
         </Route>
-
-        <Route path="/Templates" element={<Templates />} />
       </Routes>
     </AuthProvider>
   );

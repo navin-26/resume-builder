@@ -4,8 +4,8 @@ import axios from 'axios';
 import { useAuth } from './context/AuthContext';
 import './Banner.css';
 
-const Banner = ({ openModal }) => {
-  const { isAuthenticated, logout } = useAuth();
+const Banner = ({ isAuthenticated, openModal }) => {
+  const { logout } = useAuth();
   const [user, setUser] = useState(null);
   const [displayedText, setDisplayedText] = useState('');
   const navigate = useNavigate();
@@ -52,7 +52,13 @@ const Banner = ({ openModal }) => {
     navigate('/');
   };
 
-
+  const handleGetStarted = () => {
+    if (isAuthenticated) {
+      navigate('/templates');
+    } else {
+      openModal();
+    }
+  };
 
   return (
     <div className="relative bg-cover bg-center text-cyan-800 h-screen container3">
@@ -81,7 +87,7 @@ const Banner = ({ openModal }) => {
           </h5>
         </div>
         <div className="mt-5 mb-8">
-          <button className="bg-black text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black shadow-xl shadow-black/50 hover:shadow-yellow-500/90" onClick={openModal}>
+          <button className="bg-black text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black shadow-xl shadow-black/50 hover:shadow-yellow-500/90" onClick={handleGetStarted}>
             GET STARTED
           </button>
         </div>
