@@ -1,5 +1,6 @@
 {
   "version": 2,
+  
   "builds": [
     {
       "src": "frontend/package.json",
@@ -19,5 +20,8 @@
       "src": "/",
       "dest": "/frontend/build/index.html"
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/frontend/build/$1" }
   ]
 }
