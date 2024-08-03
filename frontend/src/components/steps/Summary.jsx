@@ -26,7 +26,7 @@ const Summary = ({ data, setData }) => {
 
       <div className="flex mb-4 space-x-4">
         <div className="flex-1">
-          <label className="block text-white">Text Color</label>
+          <label className="block ">Text Color</label>
           <input
             type="color"
             name="textColor"

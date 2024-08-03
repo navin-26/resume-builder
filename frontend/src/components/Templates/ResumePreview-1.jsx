@@ -41,6 +41,7 @@ const ResumePreview = ({ data }) => {
     textColor: '#000000', // Default text color
   fontStyle: 'Arial, sans-serif' // Default font style
   };
+  
 
   const mergeEducationData = (educationArray, defaultEducation) => {
     return educationArray.map((edu, index) => {

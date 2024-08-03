@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/context/AuthContext';
-import image from '../assets/bg-7.png';
 import image1 from '../assets/t-1.webp';
 import image2 from '../assets/t-2.webp';
 import image3 from '../assets/t-3.webp';
@@ -33,8 +32,7 @@ const Templates = [
 
 const TemplatePage = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
-
+  const {isAuthenticated} = useAuth();
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -48,7 +46,7 @@ const TemplatePage = () => {
         height: desiredHeight
       });
     };
-  }, []);
+  }, [])
 
   const handleTemplateClick = (templateId) => {
     if (isAuthenticated) {

@@ -6,94 +6,68 @@ import Experience from '../components/steps/Experience';
 import Skills from '../components/steps/Skills';
 import Projects from '../components/steps/Projects';
 import Summary from '../components/steps/Summary';
-import image1 from '../assets/t-1.webp';
+import axios from 'axios';
+import { useAuth } from '../components/context/AuthContext';
 
-const Templates = [
-  {
-    id: 1,
-    name: 'template - 1',
-    img: image1
-  },
-  {
-    id: 2,
-    name: 'template - 2',
-    img: image1
-  },
-  {
-    id: 3,
-    name: 'template - 3',
-    img: image1
-  },
-  {
-    id: 4,
-    name: 'template - 4',
-    img: image1
-  }
-];
-
-const defaultStyles = {
-  1: {
-    textColor: '#25093F', 
-    fontStyle: 'sans' 
-  },
-  2: {
-    textColor: '#333333', 
-    fontStyle: 'Courier New, monospace' 
-  },
-  3: {
-    textColor: '#00000',
-    fontStyle: 'sans' 
-  },
-  4: {
-    textColor: '#331900', 
-    fontStyle: 'sans' 
-  }
-};
+// const defaultStyles = {
+//   1: {
+//     textColor: '#25093F', 
+//     fontStyle: 'sans' 
+//   },
+//   2: {
+//     textColor: '#333333', 
+//     fontStyle: 'Courier New, monospace' 
+//   },
+//   3: {
+//     textColor: '#00000',
+//     fontStyle: 'sans' 
+//   },
+//   4: {
+//     textColor: '#331900', 
+//     fontStyle: 'sans' 
+//   }
+// };
 
 const TemplateEditPage = () => {
+  const { isAuthenticated } = useAuth();
   const { templateId } = useParams();
-  const navigate = useNavigate();
-
-  const { textColor, fontStyle } = defaultStyles[templateId] || defaultStyles[1]; 
+  const navigate = useNavigate(); 
+  const [user, setUser] = useState(null);
+  const [templates, setTemplates] = useState([{}, {}, {}, {}]);
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({
-    fname: '',
-    lname: '',
-    email: '',
-    phone: '',
-    city: '',
-    state: '',
-    education: [
-      {
-        institute: '',
-        degree: '',
-        specialization: '',
-        startDate: '',
-        endDate: '',
-        percentage: ''
+  const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(true);
+  
+
+  useEffect(() => {
+    if (!loading) {
+      const timer = setTimeout(() => {
+        console.log('Waited for 3 seconds after data load');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
+  
+  useEffect(() => {
+    const fetchData = async () =>{
+      if(isAuthenticated){
+        try{
+          const response = await axios.get('http://localhost:5000/auth/login/success', { withCredentials: true })
+          if (response.data.user) {
+            setUser(response.data.user);
+            setTemplates(Object.values(response.data.user.templates));
+            setFormData(response.data.user.templates[0]);
+            setLoading(false);          
+          }
+        }
+        catch(error) {
+          console.error('Error during login check:', error);
+          setLoading(false);
+        };
       }
-    ],
-    experience: [
-      {
-        companyName: '',
-        position: '',
-        startDate: '',
-        endDate: '',
-      }
-    ],
-    skills: [],
-    projects: [
-      {
-        projectTitle: '',
-        startDate: '',
-        endDate: '',
-        description: ''
-      }
-    ],
-    summary: '',
-    textColor: textColor, 
-    fontStyle: fontStyle 
-  });
+    }
+    fetchData();
+  }, []);
 
   const steps = [
     <PersonalInfo data={formData} setData={setFormData} />,
@@ -104,8 +78,30 @@ const TemplateEditPage = () => {
     <Summary data={formData} setData={setFormData} />
   ];
 
+  const handleSaveTemplate = async (template) => {
+    try {
+      setTemplates(() => {
+        const newTemplates = [...templates];
+        
+        for(let i=0; i<newTemplates.length; i++){
+          if(i === templateId-1){
+            newTemplates[i] = Object.values(template);
+          }
+          else{
+            newTemplates[i] = templates[i];
+          }
+        }
+        return newTemplates;
+      });
+      await axios.post('http://localhost:5000/auth/updateTemplate', { userId : user, template : template });
+    } catch (error) {
+      console.error('Error saving template', error);
+    }
+  };
+
   const handleNext = () => {
     setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+    handleSaveTemplate(formData);
   };
 
   const handlePrev = () => {
@@ -127,7 +123,6 @@ const TemplateEditPage = () => {
         console.error(`Error loading template ${templateId}`, error);
       }
     };
-
     loadComponent();
   }, [templateId]);
 
@@ -143,7 +138,7 @@ const TemplateEditPage = () => {
       </div>
       <div className="w-1/2 p-8 bg-gray-400 bg-opacity-60 animate-fadeInRight">
         <Suspense fallback={<div>Loading...</div>}>
-          {ResumePreviewComponent && <ResumePreviewComponent data={formData} />}
+          {!loading && ResumePreviewComponent && <ResumePreviewComponent data={formData} />}
         </Suspense>
       </div>
     </div>

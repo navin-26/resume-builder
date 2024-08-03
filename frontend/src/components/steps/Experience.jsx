@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -58,7 +58,7 @@ const ExperienceInfo = ({ data, setData }) => {
             <input
               type="text"
               name="companyName"
-              value={experience.companyName}
+              value={experience.companyName || ''}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
@@ -68,7 +68,7 @@ const ExperienceInfo = ({ data, setData }) => {
             <input
               type="text"
               name="position"
-              value={experience.position}
+              value={experience.position || ''}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />

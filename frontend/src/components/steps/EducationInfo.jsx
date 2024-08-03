@@ -62,7 +62,7 @@ const EducationInfo = ({ data, setData }) => {
             <input
               type="text"
               name="institute"
-              value={qualification.institute}
+              value={qualification.institute || ''}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
@@ -72,7 +72,7 @@ const EducationInfo = ({ data, setData }) => {
             <input
               type="text"
               name="degree"
-              value={qualification.degree}
+              value={qualification.degree || ''}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
@@ -82,7 +82,7 @@ const EducationInfo = ({ data, setData }) => {
             <input
               type="text"
               name="specialization"
-              value={qualification.specialization}
+              value={qualification.specialization || ''}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />
@@ -92,7 +92,7 @@ const EducationInfo = ({ data, setData }) => {
             <input
               type="text"
               name="percentage"
-              value={qualification.percentage}
+              value={qualification.percentage || ''}
               onChange={(e) => handleChange(e, index)}
               className="w-full p-2 border-[3px] border-cyan-800 rounded bg-black text-white"
             />

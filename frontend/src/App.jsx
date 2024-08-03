@@ -20,7 +20,6 @@ const AppRoutes = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/TemplateEditPage/:templateId" element={<TemplateEditPage />} />
           <Route path="/Templates" element={<Templates />} />
-
           <Route path="/PreviewPage" element={<PreviewPage />} />
         </Route>
       </Routes>

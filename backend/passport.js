@@ -23,7 +23,7 @@ passport.use(
                 givenName: profile.name.givenName,
                 familyName: profile.name.familyName,
             },
-            email: profile.emails[0].value,
+            email: profile.emails[0].value
         }).save();
         done(null, newUser);
     })

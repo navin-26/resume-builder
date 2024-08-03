@@ -106,7 +106,7 @@ const ResumePreview = ({ data }) => {
   return (
     <div className='border h-[11.69in] p-12 py-14 rounded bg-white font-sans text-sm mx-auto overflow-hidden text-black text-[15px] font-medium' style={previewStyle}>
       <div className='flex flex-row justify-between space-x-14 py-10 px-3 border-b border-gray-800'>
-        <div>
+        <div className='flex flex-col gap-4'>
           <h2 className="text-[40px] font-bold uppercase mb-2">{previewData.fname}</h2>
           <h2 className="text-[40px] font-bold uppercase mb-5">{previewData.lname}</h2>
         </div>
