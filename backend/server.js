@@ -18,7 +18,7 @@ const app = express();
 
 // Replace "http://localhost:3000" with your frontend URL
 const corsOptions = {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000","https://navin-26.github.io/resume-builder"
     methods: "GET,POST,PUT,DELETE",
     credentials: true, // Allow credentials to be sent
 };
