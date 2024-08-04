@@ -15,11 +15,20 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "assert": "^2.1.0",
     "axios": "^1.7.2",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.2",
+    "https-browserify": "^1.0.0",
     "jspdf": "^2.5.1",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
     "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
     "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.1",
@@ -28,13 +37,21 @@
     "react-router-dom": "^6.25.1",
     "react-scripts": "^5.0.1",
     "react-select": "^5.8.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
+
+  "homepage": "https://navin-26.github.io/resume-builder/",
+
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +73,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6"
   }

@@ -103,7 +103,7 @@ const ResumePreview = ({ data }) => {
   };
 
   return (
-    <div className="border h-[1000px] p-12 py-14 rounded bg-[#fcfced] font-sans text-sm mx-auto overflow-hidden text-[#331900] text-[13px] font-medium relative">
+    <div className="border h-[11.69in] w-[8.27in] p-12 py-14 rounded bg-[#fcfced] font-sans text-sm mx-auto overflow-hidden text-[#331900] text-[13px] font-medium relative">
       <div className="flex flex-row justify-between space-x-14 py-10 px-3 border-b border-gray-800 relative">
         <div className="relative">
           <div className="absolute left-0 top-0 transform translate-x-[-30%] translate-y-[-40%] bg-[#e7ef71] h-[60px] w-[60px] rounded-full"></div>

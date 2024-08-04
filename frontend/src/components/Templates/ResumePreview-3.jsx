@@ -10,7 +10,7 @@ const ResumePreview = ({ data }) => {
     phone: '123-456-7890',
     city: 'New York',
     state: 'NY',
-    summary: `Detail-oriented software developer with 7 years of experience in full-stack development. Proficient in Java, Python, and React, with a passion for building scalable web applications. Recognized for improving application performance by 30% through code optimization.`,
+    summary: `Detail-oriented software developer with 7 years of experience in full-stack development. Proficient in Java, Python, and React, with a passion for building scalable web applications.`,
     education: [
       {
         institute: 'Hogwarts University',
@@ -104,42 +104,42 @@ const ResumePreview = ({ data }) => {
   };
 
   return (
-    <div className='border h-[11.69in] p-12 py-14 rounded bg-white font-sans text-sm mx-auto overflow-hidden text-black text-[15px] font-medium' style={previewStyle}>
-      <div className='flex flex-row justify-between space-x-14 py-10 px-3 border-b border-gray-800'>
-        <div className='flex flex-col gap-4'>
-          <h2 className="text-[40px] font-bold uppercase mb-2">{previewData.fname}</h2>
-          <h2 className="text-[40px] font-bold uppercase mb-5">{previewData.lname}</h2>
+    <div className='border lg:h-[11.69in] lg:w-[8.27in] sm:h-[325px] sm:w-[215px] md:h-[850px] md:w-[550px] lg:p-12 md:p-5  sm:p-3 lg:py-14 md:py-6 sm:py-4 rounded bg-white font-sans md:text-sm mx-auto overflow-hidden text-black lg:text-[15px] md:text-[12px] sm:text-[6px] font-medium' style={previewStyle}>
+      <div className='flex flex-row justify-between md:space-x-14 sm:space-x-9 lg:py-10 md:py-5 sm:py-0 px-3 border-b border-gray-800'>
+        <div className='flex flex-col md:gap-4 sm:gap-[2px] lg:text-[40px] md:text-[25px] sm:text-[12px]   '>
+          <h2 className=" font-bold uppercase md:mb-2 ">{previewData.fname}</h2>
+          <h2 className="font-bold uppercase md:mb-5 sm:mb-[2px]">{previewData.lname}</h2>
         </div>
-        <div className='flex flex-col'>
-          <p className="text-lg flex items-center">
+        <div className='flex flex-col '>
+          <p className=" flex items-center">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
             {previewData.city + ", " + previewData.state}
           </p>
-          <p className="text-lg flex items-center">
+          <p className=" flex items-center">
             <FontAwesomeIcon icon={faPhone} className="mr-2" />
             {previewData.phone}
           </p>
-          <p className="text-lg flex items-center">
+          <p className="flex items-center">
             <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
             {previewData.email}
           </p>
         </div>
       </div>
 
-      <div className='flex flex-col justify-between px-3 mt-2 border-b border-gray-800'>
-        <h2 className='font-bold text-[18px] mb-4 bg-blue-100 p-2 rounded'>ABOUT ME</h2>
-        <p className="mb-4">{previewData.summary}</p>
+      <div className='flex flex-col justify-between md:px-3 md:mt-2 sm:mt-[4px]  border-b border-gray-800'>
+        <h2 className='font-bold lg:text-[18px] md:text-[14px] sm:text-[8px] md:mb-4 sm:mb-2 bg-blue-100 md:p-2 rounded'>ABOUT ME</h2>
+        <p className="md:mb-4 mb-1">{previewData.summary}</p>
       </div>
 
-      <div className='flex flex-row px-3 border-b border-gray-800'>
-        <div className='w-1/2'>
-          <h3 className="text-[18px] font-bold my-3 py-3 uppercase text-black bg-blue-100 " style={previewStyle}>EXPERIENCE</h3>
+      <div className='flex flex-row mt-1 md:px-3 border-b border-gray-800'>
+        <div className='w-1/2 '>
+          <h3 className="lg:text-[18px] md:text-[14px] sm:text-[8px] font-bold md:my-3 md:py-3 uppercase text-black bg-blue-100 " style={previewStyle}>EXPERIENCE</h3>
           {previewData.experience.map((exp, index) => (
-            <div key={index} className="my-3">
+            <div key={index} className="md:my-3 my-1">
               <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                 <div className="flex-1">
-                  <p className="font-bold mb-2">{exp.companyName}</p>
-                  <p className="mb-2">{exp.position}</p>
+                  <p className="font-bold md:mb-2 mb-[2px]">{exp.companyName}</p>
+                  <p className="md:mb-2 mb-[2px]">{exp.position}</p>
                   <p className="font-bold">{exp.startDate} - {exp.endDate}</p>
                 </div>
               </div>
@@ -148,13 +148,13 @@ const ResumePreview = ({ data }) => {
         </div>
 
         <div className='w-1/2'>
-          <h3 className="text-[18px] font-bold my-3 py-3 uppercase text-black bg-blue-100" style={previewStyle}>EDUCATION</h3>
+          <h3 className="lg:text-[18px] md:text-[14px] sm:text-[8px] font-bold md:my-3 md:py-3 uppercase text-black bg-blue-100" style={previewStyle}>EDUCATION</h3>
           {previewData.education.map((edu, index) => (
-            <div className="flex flex-row md:items-center mb-4" key={index}>
+            <div className="flex flex-row items-center md:mb-4 my-1" key={index}>
               <div>
                 <p className="font-bold uppercase">{edu.institute}</p>
-                <p className="mt-2 uppercase">{edu.degree + " " + edu.specialization}</p>
-                <p className="font-bold">{edu.startDate} - {edu.endDate}</p>
+                <p className="md:mt-2 mb-[2px] uppercase">{edu.degree + " " + edu.specialization}</p>
+                <p className="font-bold mb-[2px]">{edu.startDate} - {edu.endDate}</p>
                 <span>{edu.percentage}%</span>
               </div>
             </div>
@@ -162,24 +162,24 @@ const ResumePreview = ({ data }) => {
         </div>
       </div>
 
-      <div className="border-b border-gray-800 px-3">
-        <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-black bg-blue-100" style={previewStyle}>SKILLS</h3>
-        <div className="flex flex-wrap justify-start my-5">
+      <div className="border-b border-gray-800 md:px-3">
+        <h3 className="lg:text-[18px] md:text-[14px] sm:text-[8px] font-bold md:mt-4 mt-1 md:pb-1 uppercase text-black bg-blue-100" style={previewStyle}>SKILLS</h3>
+        <div className="flex flex-wrap justify-start md:my-5 my-1">
           {previewData.skills.map((skill, index) => (
-            <div key={index} className="text-black px-4 py-2 mx-2 my-2 flex items-center text-[15px] " style={previewStyle}>
-              <FontAwesomeIcon icon={faCircle} className="mr-2" />
-              <p className="mr-2">{skill}</p>
+            <div key={index} className="text-black md:px-4 md:py-2 md:mx-2 md:my-2 flex items-center md:text-[15px] sm:text-[5px] " style={previewStyle}>
+              <FontAwesomeIcon icon={faCircle} className="md:mr-2 mr-1" />
+              <p className="md:mr-2 mr-1">{skill}</p>
             </div>
           ))}
         </div>
       </div>
 
-      <h3 className="text-[18px] font-bold mt-4 pb-1 uppercase text-black px-3 bg-blue-100" style={previewStyle}>PROJECTS</h3>
-      <div className="px-3">
+      <h3 className="lg:text-[18px] md:text-[14px] text-[7px] font-bold md:mt-4 mt-1 md:pb-1 uppercase text-black md:px-3 bg-blue-100" style={previewStyle}>PROJECTS</h3>
+      <div className="md:px-3">
         {previewData.projects.map((proj, index) => (
-          <div key={index} className="flex flex-col justify-between my-2">
+          <div key={index} className="flex flex-col justify-between md:my-2 my-[2px]">
             <p className="font-bold">{proj.projectTitle + " (" + proj.startDate + " - " + proj.endDate + ")"}</p>
-            <p className="my-3 text-justify">{proj.description}</p>
+            <p className="md:my-3 my-1 text-justify">{proj.description}</p>
           </div>
         ))}
       </div>

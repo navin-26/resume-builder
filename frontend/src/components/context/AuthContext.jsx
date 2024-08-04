@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     // Check authentication only if not on specific pages
-    const excludedPaths = ['/signin', '/signup', '/'];
+    const excludedPaths = [ '/'];
     if (!excludedPaths.includes(window.location.pathname)) {
       authenticate();
     } else {

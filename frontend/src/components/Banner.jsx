@@ -79,20 +79,20 @@ const Banner = ({ isAuthenticated, openModal }) => {
           </button>
         )}
       </div>
-      <div className="relative md:pl-24 sm:pl-12 md:w-1/2 sm:w-3/4 h-screen content-center">
+      <div className="relative xl:pl-24 sm:pl-12 md:w-1/2 sm:w-3/4 h-screen content-center">
         <div>
-          <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[80px] md:text-[75px] sm:text-[35px] font-bold leading-none text-left text-cyan-800 uppercase">
+          <h5 className="2xl:text-[100px] xl:text-[90px] lg:text-[70px] md:text-[65px] sm:text-[30px] font-bold leading-none text-left text-cyan-800 uppercase">
             {displayedText}
             <span className="blinking-cursor">|</span>
           </h5>
         </div>
-        <div className="mt-5 mb-8">
-          <button className="bg-black text-white py-2 px-4 font-bold mb-5 hover:bg-yellow-500 hover:text-black shadow-xl shadow-black/50 hover:shadow-yellow-500/90" onClick={handleGetStarted}>
+        <div className="md:mt-5 md:mb-8 sm:mt-3 sm:mb-5">
+          <button className="bg-black text-white md:py-2 md:px-4 md:mb-5  sm:py-1 sm:px-2 sm:mb-2 sm:text-[10px] md:text-[20px]  font-bold  hover:bg-yellow-500 hover:text-black shadow-xl shadow-black/50 hover:shadow-yellow-500/90" onClick={handleGetStarted}>
             GET STARTED
           </button>
         </div>
         <div>
-          <p className="lg:text-left tracking-wider font-bold 2xl:text-[20px] xl:text-[17px] lg:text-[17px] md:text-[16px] sm:text-[15px] text-black">
+          <p className="lg:text-left tracking-wider font-bold 2xl:text-[20px] xl:text-[17px] lg:text-[17px] md:text-[16px] sm:text-[12px] text-black">
             Our easy-to-use interface ensures that creating a resume is a hassle-free experience. Simply fill
             in your details, choose a template, and let our tool do the rest.
           </p>

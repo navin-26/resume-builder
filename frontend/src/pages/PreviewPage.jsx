@@ -60,16 +60,16 @@ const PreviewPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center h-full bg-cover bg-center relative bg-cyan-800 container3">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-cover bg-center relative bg-cyan-800 container3">
       <button
-        className="top-14 right-14 font-semibold cursor-pointer bg-black px-3 py-2 rounded-full text-white hover:text-black  hover:bg-yellow-500 w-[150px] fixed"
+        className="top-14 right-14 font-semibold cursor-pointer bg-black px-3 py-2 rounded-full text-white hover:text-black  hover:bg-yellow-500 w-[150px] fixed z-10"
         onClick={handleDownload}
       >
         DOWNLOAD
       
       </button>
 
-      <div ref={previewRef} className="w-[8.27in]  bg-white bg-opacity-60 shadow-lg p-4 mt-12 ">
+      <div ref={previewRef} className="bg-white bg-opacity-60 shadow-lg p-4  ">
         <React.Suspense fallback={<div>Loading...</div>}>
           <ResumePreviewComponent data={formData} />
         </React.Suspense>

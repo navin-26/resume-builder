@@ -57,12 +57,12 @@ const TemplatePage = () => {
   };
 
   return (
-    <div className="bg-cover bg-center text-white h-screen container3 pt-10">
-      <div className="w-10/12 h-2/6 text-white bg-cyan-800 px-10 tracking-wider font-bold text-[4rem] slide-in-left ">
+    <div className="bg-cover bg-center text-white md:h-screen sm:h-auto container3 pt-10 sm:pb-5 ">
+      <div className="w-10/12 h-2/6 text-white bg-cyan-800 px-10 tracking-wider font-bold md:text-[4rem] sm:text-[2rem] slide-in-left ">
         <p>SELECT A</p>
         <p>TEMPLATE</p>
       </div>
-      <div className="flex flex-row justify-evenly cursor-pointer mt-8">
+      <div className="flex md:flex-row sm:flex-col justify-evenly items-center sm:gap-5 md:gap-0 cursor-pointer mt-8">
         {Templates.map((item) => (
           <div
             className="template-container border-2 border-black"

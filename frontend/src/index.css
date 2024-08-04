@@ -27,24 +27,28 @@ code {
 
 
 .card {
-  width: 300px;
-  height: 120px;
   padding: 0.5rem;
   background: rgb(0, 0, 0);
-  border-color:rgb(239, 239, 11);
+  border-color: rgb(239, 239, 11);
   border-radius: 8px;
   border-bottom: 3px solid rgb(221, 235, 22);
-  border-left: 2px  rgb(235, 235, 12) outset;
+  border-left: 2px rgb(235, 235, 12) outset;
   box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
-  transform: skewX(10deg);
-  transition: .4s;
   overflow: hidden;
   color: white;
+  transition: .4s;
 }
 
-.card:hover {
-  height: 420px;
-  transform: skew(0deg);
+/* Styles for screens wider than 768px */
+@media (min-width: 768px) {
+  .card {
+    transform: skewX(10deg);
+  }
+
+  .card:hover {
+    height: 420px;
+    transform: skew(0deg);
+  }
 }
 
 .align {

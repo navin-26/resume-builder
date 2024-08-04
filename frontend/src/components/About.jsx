@@ -3,14 +3,15 @@ import backgroundImage from '../assets/bg-1.png';
 
 const About = () => {
   return (
-    <div className="relative bg-white bg-center text-white h-screen container3" >
-      <h4 className="absolute top-0 left-1/2 transform -translate-x-1/2 text-[80px] font-bold text-yellow-500">
+    <div className="relative bg-white bg-center text-white sm:h-auto md:h-screen container3 flex flex-col gap-24 w-auto sm:p-5 md:p-0" >
+      <div>
+      <h4 className="absolute top-0 left-1/2 transform -translate-x-1/2 md:text-[80px] sm:text-[40px]  font-bold text-yellow-500">
         ABOUT
       </h4>
-
+      </div>
       <div className="h-full flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 hover:cursor-pointer uppercase">
-          <div className="card p-8 bg-white bg-opacity-10 rounded-lg hover:scale-105 transition-transform duration-200">
+          <div className="card p-8 bg-white bg-opacity-10 rounded-lg hover:scale-105 transition-transform duration-200  xl:w-[300px] xl:h-[120px] md:w-[200px] md:h-[120px] sm:w-[220px] sm:h-[350px] sm:text-[12px] md:text-[16px]">
             <div className="align flex justify-between mb-4">
               <span className="red w-3 h-3 bg-red-500 rounded-full"></span>
               <span className="yellow w-3 h-3 bg-yellow-500 rounded-full"></span>
@@ -30,7 +31,7 @@ const About = () => {
               <span className="text-yellow-500 font-bold">Time-Saving:</span> Streamlined process for quick creation.
             </p>
           </div>
-          <div className="card p-8 bg-white bg-opacity-10 rounded-lg text hover:scale-105 transition-transform duration-200">
+          <div className="card p-8 bg-white bg-opacity-10 rounded-lg text hover:scale-105 transition-transform duration-200  xl:w-[300px] xl:h-[120px] md:w-[200px] md:h-[120px] sm:w-[220px] sm:h-[350px] text-[12px] md:text-[16px]">
             <div className="align flex justify-between mb-4">
               <span className="red w-3 h-3 bg-red-500 rounded-full"></span>
               <span className="yellow w-3 h-3 bg-yellow-500 rounded-full"></span>
@@ -50,7 +51,7 @@ const About = () => {
               <span className="text-yellow-500 font-bold">4. Preview & Download:</span> Preview in real-time and download as PDF.
             </p>
           </div>
-          <div className="card p-8 bg-white bg-opacity-10 rounded-lg text hover:scale-105 transition-transform duration-200">
+          <div className="card p-8 bg-white bg-opacity-10 rounded-lg text hover:scale-105 transition-transform duration-200  xl:w-[300px] xl:h-[120px] md:w-[200px] md:h-[120px] sm:w-[220px] sm:h-[350px] text-[12px] md:text-[16px]">
             <div className="align flex justify-between mb-4">
               <span className="red w-3 h-3 bg-red-500 rounded-full"></span>
               <span className="yellow w-3 h-3 bg-yellow-500 rounded-full"></span>
