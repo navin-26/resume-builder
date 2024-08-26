@@ -1,4 +1,3 @@
-// backend/passport.js
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User');
@@ -10,13 +9,12 @@ passport.use(
         callbackURL: process.env.GOOGLE_REDIRECT_URL,
     },
     async (accessToken, refreshToken, profile, done) => {
-        // Check if user already exists in our db
+        
         const existingUser = await User.findOne({ googleId: profile.id });
         if (existingUser) {
-            // Already have this user
+
             return done(null, existingUser);
         }
-        // If not, create a new user in our db
         const newUser = await new User({
             googleId: profile.id,
             name: {

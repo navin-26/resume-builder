@@ -68,16 +68,16 @@ router.get(
         failureRedirect: "/login/failed",
     }),
     (req, res) => {
-        // Successful authentication, redirect to UserHome
+       
         res.redirect(process.env.CLIENT_URL + "/userHome");
     }
 );
 
-// In your auth route file
+
 router.get('/logout', (req, res) => {
-    req.logout(); // Assuming you're using Passport.js
-    req.session = null; // Clear session
-    res.status(200).json({ message: 'Logged out successfully' }); // Send a response
+    req.logout(); 
+    req.session = null;
+    res.status(200).json({ message: 'Logged out successfully' });
 });
 
 

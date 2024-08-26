@@ -1,8 +1,7 @@
-// backend/models/User.js
 const mongoose = require('mongoose');
 
 const templateSchema = new mongoose.Schema({
-    id: Number, // Add an ID field to the schema
+    id: Number, 
     fname: { type: String },
     lname: { type: String },
     email: { type: String },

@@ -43,7 +43,7 @@
     "web-vitals": "^2.1.4"
   },
 
-  "homepage": "https://navin-26.github.io/resume-builder/",
+"homepage": "/",
 
   "scripts": {
     "predeploy": "npm run build",

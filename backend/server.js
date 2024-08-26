@@ -5,10 +5,8 @@ const authRoute = require("./routes/auth");
 const cookieSession = require("cookie-session");
 const cors = require("cors");
 require("./passport");
-// backend/server.js
 const mongoose = require('mongoose');
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
@@ -16,11 +14,10 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 const app = express();
 
-// Replace "http://localhost:3000" with your frontend URL
 const corsOptions = {
-    origin: "http://localhost:3000","https://navin-26.github.io/resume-builder"
+    origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
-    credentials: true, // Allow credentials to be sent
+    credentials: true, 
 };
 
 app.use(cors(corsOptions));
@@ -29,7 +26,7 @@ app.use(
     cookieSession({
         name: "session",
         keys: ["cyberwolve"],
-        maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+        maxAge: 24 * 60 * 60 * 1000, 
     })
 );
 
